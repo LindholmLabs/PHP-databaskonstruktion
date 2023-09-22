@@ -1,4 +1,10 @@
-<?php include 'Components.php'; generateHead(); ?>
+<?php
+    require 'Database.php';
+    include 'Components.php'; 
+
+    Database::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
+    generateHead(); 
+?>
 
 <body>
     <?php

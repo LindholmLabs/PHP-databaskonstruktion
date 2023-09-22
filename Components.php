@@ -1,6 +1,7 @@
 <?php
     function displayTable($tableName) {
-        $pdo = new PDO('mysql:dbname=a22willi;host=localhost;', "root", '');
+        $db = Database::getInstance();
+        $pdo = $db->getPdo();
 
         // Start the table
         $output = "<table class='table table-striped table-bordered'>";
@@ -90,53 +91,111 @@
         ";
     }
 
-    function generateInsertFunction($tableName) {
-        $pdo = new PDO('mysql:dbname=a22willi;host=localhost;', 'root', '');
+    function hasInsertPrivilege($tableName) {
+        // Get the PDO instance from the Database singleton
+        $db = Database::getInstance();
+        $pdo = $db->getPdo();
     
-        // Fetch column names
-        $stmt = $pdo->prepare('DESCRIBE ' . $tableName);
-        $stmt->execute();
-        $columns = $stmt->fetchAll(PDO::FETCH_COLUMN);
-
-        // Generate the button to open the modal
-        $button = "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#insertModal'>
-                        Add Data
-                    </button>";
+        // Query the database to get the grants for the current user
+        $sqlCheckPrivileges = "SHOW GRANTS FOR CURRENT_USER()";
+        $stmtCheck = $pdo->prepare($sqlCheckPrivileges);
+        $stmtCheck->execute();
+        $grants = $stmtCheck->fetchAll(PDO::FETCH_COLUMN);
     
-        // Generate the modal
-        $modal = generateStylizedModal($columns);
-    
-        echo $button . $modal;
-    }
-
-    function generateStylizedModal($columns) {
-        // Generate the modal
-        $modal = "<div class='modal fade' id='insertModal' tabindex='-1' role='dialog' aria-labelledby='insertModalLabel' aria-hidden='true'>
-            <div class='modal-dialog' role='document'>
-                <div class='modal-content rounded'>
-                    <div class='modal-header'>
-                        <button type='button' class='close ml-0' data-dismiss='modal' aria-label='Close'>
-                            <span aria-hidden='true'>&times;</span>
-                        </button>
-                    </div>
-                    <div class='modal-body'>";
-    
-        foreach ($columns as $column) {
-            $modal .= "<div class='form-group'>
-                            <label for='$column'>$column</label>
-                            <input type='text' class='form-control' id='$column' name='$column' placeholder='$column' required>
-                        </div>";
+        // Check if any of the grants include the INSERT privilege for the specified table or for all tables
+        foreach ($grants as $grant) {
+            if (strpos($grant, "GRANT INSERT ON *.*") !== false) {
+                return true; // Global insert privilege
+            }
+            if (strpos($grant, "GRANT INSERT ON `{$tableName}`") !== false || strpos($grant, "GRANT INSERT ON `$tableName`.*") !== false) {
+                return true; // Specific table or database-wide insert privilege
+            }
         }
     
-        $modal .= "</div>
-                    <div class='modal-footer'>
-                        <button type='button' class='btn btn-primary' onclick='saveData()'>Save</button>
+        return false;
+    }
+
+    function insertDataIntoTable($pdo, $tableName) {
+        $columns = array_keys($_POST);
+        unset($columns[array_search('tableName', $columns)]); // Exclude tableName from columns
+    
+        $placeholders = rtrim(str_repeat('?,', count($columns)), ',');
+        $sql = "INSERT INTO $tableName (" . implode(',', $columns) . ") VALUES ($placeholders)";
+    
+        $stmt = $pdo->prepare($sql);
+        $values = array_values($_POST);
+        array_pop($values); // Exclude tableName from values
+        $stmt->execute($values);
+    }
+    
+    function generateInsertFunction($tableName) {
+        $db = Database::getInstance();
+        $pdo = $db->getPdo();
+    
+        if (isFormSubmitted() && isTableNameSet()) {
+            insertDataIntoTable($pdo, $tableName);
+            redirectToCurrentPage();
+        }
+
+        $columns = fetchTableColumns($pdo, $tableName);
+        echo generateAddDataButton() . generateStylizedModal($tableName, $columns);
+    }
+
+    function isFormSubmitted() {
+        return $_SERVER['REQUEST_METHOD'] === 'POST';
+    }
+    
+    function isTableNameSet() {
+        return isset($_POST['tableName']);
+    }
+    
+    function redirectToCurrentPage() {
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit;
+    }
+    
+    function fetchTableColumns($pdo, $tableName) {
+        $stmt = $pdo->prepare('DESCRIBE ' . $tableName);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    
+    function generateAddDataButton() {
+        return "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#insertModal'>
+                    Add Data
+                </button>";
+    }
+    
+    function generateStylizedModal($tableName, $columns) {
+        $modalStart = "<form action='' method='POST'>
+                        <div class='modal fade' id='insertModal' tabindex='-1' role='dialog' aria-labelledby='insertModalLabel' aria-hidden='true'>
+                            <div class='modal-dialog' role='document'>
+                                <div class='modal-content rounded'>
+                                    <div class='modal-header'>
+                                        <button type='button' class='close ml-0' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='modal-body'>";
+    
+        $modalBody = '';
+        foreach ($columns as $column) {
+            $modalBody .= "<div class='form-group'>
+                                <label for='$column'>$column</label>
+                                <input type='text' class='form-control' id='$column' name='$column' placeholder='$column' required>
+                            </div>";
+        }
+    
+        $modalEnd = "</div>
+                        <div class='modal-footer'>
+                            <input type='hidden' name='tableName' value='$tableName'>
+                            <button type='submit' class='btn btn-primary'>Save</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>";
+            </form>";
     
-        return $modal;
+        return $modalStart . $modalBody . $modalEnd;
     }
     
 ?>

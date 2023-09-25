@@ -1,6 +1,6 @@
 <?php
     require 'Database.php';
-    include 'Components.php'; 
+    include 'Components.php';
 
     Database::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
     generateHead(); 

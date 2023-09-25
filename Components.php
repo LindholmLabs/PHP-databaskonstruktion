@@ -1,4 +1,6 @@
 <?php
+    include 'modalBuilder.php';
+
     function displayTable($tableName) {
         $db = Database::getInstance();
         $pdo = $db->getPdo();
@@ -13,7 +15,7 @@
                 $output .= "<thead class='thead-dark'><tr>";
                 foreach($row as $key => $value) {
                     if(!is_numeric($key)) { // Avoid displaying numeric indices
-                        $output .= "<th>" . htmlspecialchars($key) . "</th>";
+                        $output .= "<th>" . safeHmlspecialchars($key) . "</th>";
                     }
                 }
                 $output .= "</tr></thead><tbody>";
@@ -22,7 +24,7 @@
             $output .= "<tr>";
             foreach($row as $key => $value) {
                 if(!is_numeric($key)) { // Avoid displaying numeric indices
-                    $output .= "<td>" . htmlspecialchars($value) . "</td>";
+                    $output .= "<td>" . safeHmlspecialchars($value) . "</td>";
                 }
             }
             $output .= "</tr>";
@@ -31,6 +33,10 @@
 
         // Return the generated table
         echo $output;
+    }
+
+    function safeHmlspecialchars($value) {
+        return empty($value) ? "" : htmlspecialchars($value);
     }
 
     function generateNavbar() {
@@ -83,6 +89,7 @@
     function generateFooter() {
         $year = date('Y');
         echo "
+        <br><br><br><br>
         <footer class='footer py-3 bg-dark text-white text-center'>
             <div class='container'>
                 <p>&copy;{$year} PUCKO-PORTAL. All rights reserved.</p>
@@ -136,11 +143,21 @@
             insertDataIntoTable($pdo, $tableName);
             redirectToCurrentPage();
         }
-
+    
         $columns = fetchTableColumns($pdo, $tableName);
-        echo generateAddDataButton() . generateStylizedModal($tableName, $columns);
+        
+        $modalBuilder = (new ModalBuilder())
+            ->setModalId('insertModal')
+            ->setTableName($tableName);
+        
+        foreach ($columns as $column) {
+            $modalBuilder->addColumn($column);
+        }
+    
+        echo $modalBuilder->generateOpenButton("Add Data");
+        echo $modalBuilder->build();
     }
-
+    
     function isFormSubmitted() {
         return $_SERVER['REQUEST_METHOD'] === 'POST';
     }
@@ -159,43 +176,4 @@
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
-    
-    function generateAddDataButton() {
-        return "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#insertModal'>
-                    Add Data
-                </button>";
-    }
-    
-    function generateStylizedModal($tableName, $columns) {
-        $modalStart = "<form action='' method='POST'>
-                        <div class='modal fade' id='insertModal' tabindex='-1' role='dialog' aria-labelledby='insertModalLabel' aria-hidden='true'>
-                            <div class='modal-dialog' role='document'>
-                                <div class='modal-content rounded'>
-                                    <div class='modal-header'>
-                                        <button type='button' class='close ml-0' data-dismiss='modal' aria-label='Close'>
-                                            <span aria-hidden='true'>&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class='modal-body'>";
-    
-        $modalBody = '';
-        foreach ($columns as $column) {
-            $modalBody .= "<div class='form-group'>
-                                <label for='$column'>$column</label>
-                                <input type='text' class='form-control' id='$column' name='$column' placeholder='$column' required>
-                            </div>";
-        }
-    
-        $modalEnd = "</div>
-                        <div class='modal-footer'>
-                            <input type='hidden' name='tableName' value='$tableName'>
-                            <button type='submit' class='btn btn-primary'>Save</button>
-                        </div>
-                    </div>
-                </div>
-            </form>";
-    
-        return $modalStart . $modalBody . $modalEnd;
-    }
-    
 ?>

@@ -135,6 +135,12 @@
         $stmt->execute($values);
     }
     
+    function getPrimaryKeysOfReferencedTable($pdo, $referencedTable, $referencedColumn) {
+        $stmt = $pdo->prepare("SELECT $referencedColumn FROM $referencedTable");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+    }
+    
     function generateInsertFunction($tableName) {
         $db = Database::getInstance();
         $pdo = $db->getPdo();
@@ -145,17 +151,105 @@
         }
     
         $columns = fetchTableColumns($pdo, $tableName);
-        
+        $foreignKeys = getForeignKeys($tableName);
+    
         $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
             ->setTableName($tableName);
-        
+    
+        $handledForeignKeys = [];  // To keep track of which foreign keys have already been handled
+    
         foreach ($columns as $column) {
-            $modalBuilder->addColumn($column);
+            $isForeignKey = false;
+    
+            foreach ($foreignKeys as $foreignKey) {
+                if ($foreignKey['COLUMN_NAME'] == $column) {
+                    if (in_array($column, $handledForeignKeys)) {
+                        continue;  // Skip if this foreign key column is already handled
+                    }
+                    $referencedTable = $foreignKey['REFERENCED_TABLE_NAME'];
+                    $primaryKeyValues = fetchPrimaryKeyValues($pdo, $referencedTable);
+                    $modalBuilder->addDropdownColumn($column, $primaryKeyValues);
+                    $isForeignKey = true;
+    
+                    // Mark the current foreign key column as handled
+                    $handledForeignKeys[] = $column;
+    
+                    // Check if any other columns reference the same table (i.e., composite key)
+                    foreach ($foreignKeys as $fk) {
+                        if ($fk['REFERENCED_TABLE_NAME'] == $referencedTable) {
+                            $handledForeignKeys[] = $fk['COLUMN_NAME'];
+                        }
+                    }
+    
+                    break;
+                }
+            }
+    
+            if (!$isForeignKey) {
+                $modalBuilder->addColumn($column);
+            }
         }
     
         echo $modalBuilder->generateOpenButton("Add Data");
         echo $modalBuilder->build();
+    }
+
+    function fetchPrimaryKeyValues($pdo, $table) {
+        // Get primary key columns of the table
+        $stmt = $pdo->prepare("SHOW KEYS FROM $table WHERE Key_name = 'PRIMARY'");
+        $stmt->execute();
+        $primaryKeys = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        // If there's only one primary key, return its values
+        if (count($primaryKeys) === 1) {
+            $column = $primaryKeys[0]['Column_name'];
+            $stmt = $pdo->prepare("SELECT $column FROM $table");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+        } 
+        
+        // For composite primary keys
+        $columns = array_map(function ($item) {
+            return $item['Column_name'];
+        }, $primaryKeys);
+        
+        $selectColumns = implode(", ", $columns);
+        $stmt = $pdo->prepare("SELECT $selectColumns FROM $table");
+        $stmt->execute();
+        
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $compositeKeyValues = [];
+        
+        foreach ($results as $row) {
+            $compositeKeyValues[] = implode("-", $row); // Combining multiple column values
+        }
+        
+        return $compositeKeyValues;
+    }    
+
+    function getForeignKeys($table) {
+        // Get the database instance and PDO object
+        $db = Database::getInstance();
+        $pdo = $db->getPdo();
+    
+        // Fetch the current database name
+        $currentDatabase = $pdo->query('SELECT DATABASE()')->fetchColumn();
+    
+        // Prepare and execute the statement to fetch foreign keys
+        $stmt = $pdo->prepare("
+            SELECT COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME 
+            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+            WHERE TABLE_SCHEMA = :databaseName 
+            AND TABLE_NAME = :tableName 
+            AND REFERENCED_TABLE_NAME IS NOT NULL;
+        ");
+        
+        $stmt->bindParam(':databaseName', $currentDatabase);
+        $stmt->bindParam(':tableName', $table);
+        $stmt->execute();
+    
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
     function isFormSubmitted() {

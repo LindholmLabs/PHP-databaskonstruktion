@@ -16,6 +16,7 @@
 
         echo "<h2>Operations</h2>";
         displayTable("Operation");
+        generateInsertFunction("Operation");
 
         echo "</div>";
 

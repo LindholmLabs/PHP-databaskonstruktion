@@ -1,28 +1,34 @@
 <?php
-
-    
+    require 'Database.php';
     include 'Components.php';
-    include 'modalBuilder.php';
 
-    generateHead();
-    echo '<body>';
-    $modalBuilder1 = (new ModalBuilder())
-        ->setModalId('modal1')
-        ->setTableName('SampleTable1')
-        ->addColumn('FirstName')
-        ->addColumn('LastName')
-        ->addDropdownColumn('Foreign', ['hej', 'test', 'hello', 'asddfsdf']);
+    Database::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
+    
+    function getForeignKeys($table) {
+        // Get the database instance and PDO object
+        $db = Database::getInstance();
+        $pdo = $db->getPdo();
+    
+        // Fetch the current database name
+        $currentDatabase = $pdo->query('SELECT DATABASE()')->fetchColumn();
+    
+        // Prepare and execute the statement to fetch foreign keys
+        $stmt = $pdo->prepare("
+            SELECT COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME 
+            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+            WHERE TABLE_SCHEMA = :databaseName 
+            AND TABLE_NAME = :tableName 
+            AND REFERENCED_TABLE_NAME IS NOT NULL;
+        ");
+        
+        $stmt->bindParam(':databaseName', $currentDatabase);
+        $stmt->bindParam(':tableName', $table);
+        $stmt->execute();
+    
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-    $modalBuilder2 = (new ModalBuilder())
-        ->setModalId('modal2')
-        ->setTableName('SampleTable2')
-        ->addColumn('Age');
-
-    $modalBuilder1->generateOpenButton("Open Modal 1");
-    $modalBuilder1->build();
-
-    $modalBuilder2->generateOpenButton("Open Modal 2");
-    $modalBuilder2->build();
-
-    echo '</body>';
+    foreach (getForeignKeys('Operation') AS $op) {
+        print_r($op);
+    }
 ?>

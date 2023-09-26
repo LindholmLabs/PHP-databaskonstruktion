@@ -3,6 +3,7 @@
         private $tableName;
         private $columns = [];
         private $dropdownColumns = [];
+        private $requiredColumns = [];
         private $modalId;
             
         public function setTableName($tableName) {
@@ -15,8 +16,13 @@
             return $this;
         }
     
-        public function addColumn($column) {
+        public function addColumn($column, $optional = false) {
             $this->columns[] = $column;
+            
+            if (!$optional) {
+                $this->requiredColumns[] = $column;
+            }
+
             return $this;
         }
 
@@ -26,7 +32,7 @@
         }
     
         public function generateOpenButton($label = "Open Modal") {
-            echo "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#{$this->modalId}'>{$label}</button>";
+            return "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#{$this->modalId}'>{$label}</button>";
         }
 
         public function build() {
@@ -44,9 +50,10 @@
 
             $modalBody = '';
             foreach ($this->columns as $column) {
+                $required = in_array($column, $this->requiredColumns) ? 'required' : '';
                 $modalBody .= "<div class='form-group'>
                                     <label for='$column'>$column</label>
-                                    <input type='text' class='form-control' id='$column' name='$column' placeholder='$column' required>
+                                    <input type='text' class='form-control' id='$column' name='$column' placeholder='$column' $required>
                                 </div>";
             }
 
@@ -73,7 +80,7 @@
                     </div>
                 </form>";
 
-            echo $modalStart . $modalBody . $modalEnd;
+            return $modalStart . $modalBody . $modalEnd;
         }
     }
 ?>

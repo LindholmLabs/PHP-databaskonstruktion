@@ -1,27 +1,10 @@
 <?php
-    require 'Database.php';
-    include 'Components.php'; 
+    require 'imports.php';
+    dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
 
-    Database::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
-    generateHead(); 
+    $pageContent = '';
+
+    $pageContent .= "<h3>Terrain</h3>" . displayTable("Terrain");
+
+    include 'pageTemplate.php';
 ?>
-
-<body>
-    <?php
-        # --- HEAD --- #
-        generateNavbar();
-
-        # --- TABLES --- #
-        echo "<div class=\"m-5\">";
-
-        echo "<h2>Terrain</h2>";
-        displayTable("Terrain");
-
-        echo "</div>";
-
-        # --- FOOTER --- #
-        generateFooter();
-    ?>
-</body>
-
-</html>

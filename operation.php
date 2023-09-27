@@ -35,6 +35,8 @@
     $addAgentModalBuilder->handleData();
     $pageContent .= $addAgentModalBuilder->build();
     $pageContent .= $addAgentModalBuilder->generateOpenButton("Add agent");
+
+    $pageContent .= "<hr>";
     
     $queryGroupLeader = "SELECT GroupLeader FROM Operation 
         WHERE OperationName = '{$operationName}' 

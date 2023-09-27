@@ -128,5 +128,50 @@
                 return '';
             }
         }
+
+        /**
+         * Generate a card layout instead of a table layout. 
+         * Only suitable for smaller datatables.
+         */
+        public static function createCardTable($tableName) {
+            $db = dbconnection::getInstance();
+            $pdo = $db->getPdo();
+        
+            $output = "<div class='card-columns'>";
+        
+            try {
+                $headers = [];
+                $firstRow = true;
+                foreach($pdo->query('SELECT * FROM ' . $tableName . ';') AS $row) {
+                    if($firstRow) {
+                        foreach($row as $key => $value) {
+                            if(!is_numeric($key)) { 
+                                $headers[] = $key;
+                            }
+                        }
+                        $firstRow = false;
+                    }
+        
+                    $output .= "<div class='card'>";
+                    $output .= "<div class='card-header'>$tableName</div>";
+                    $output .= "<div class='card-body'>";
+                    
+                    for($i = 0; $i < count($headers); $i++) {
+                        if(isset($row[$headers[$i]]) && !is_numeric($headers[$i])) {
+                            $output .= "<p class='card-text'>" . $headers[$i] . ": " . $row[$headers[$i]] . "</p>";
+                        }
+                    }
+                    
+                    $output .= "</div>";
+                    $output .= "</div>";
+                }
+                $output .= "</div>";
+        
+                return $output;
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return '';
+            }
+        }
     }
 ?>

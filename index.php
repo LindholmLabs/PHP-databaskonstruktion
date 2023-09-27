@@ -19,7 +19,12 @@
     $pageContent .= $attributeModalBuilder->build();
     $pageContent .= $attributeModalBuilder->generateOpenButton("Set specialty");
 
+    $pageContent .= "<hr>";
+
     $pageContent .= "<h3>GroupLeaders</h3>" . tableFactory::createTable("GroupLeaders");
+
+    $pageContent .= "<hr>";
+
     $pageContent .= "<h3>Managers</h3>" . tableFactory::createTable("Managers");
 
     $agentModalBuilder = (new ModalBuilder())

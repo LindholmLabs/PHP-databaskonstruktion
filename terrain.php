@@ -5,14 +5,14 @@
 
     $pageContent = '';
 
-    $pageContent .= "<h3>Terrain</h3>" . tableFactory::createTable("Terrain");
+    $pageContent .= tableFactory::createCardTable("Terrain");
 
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
             ->setTableName("Terrain")
             ->setInsertHandler($handlerFactory->createHandler('Terrain'))
-            ->addColumn("TerrainCode")
-            ->addColumn("TerrainName");
+            ->addHiddenColumn("TerrainCode", getTableCount('Terrain') + 1)
+            ->addColumn("TerrainName"); 
 
 
     $modalBuilder->handleData();

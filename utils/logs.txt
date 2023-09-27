@@ -593,3 +593,22 @@
         AND StartDate = '2021-03-23'
         AND IncidentName = 'Theft'
         AND IncidentNumber = 110
+2023-09-27 21:21:33 - Inserting into: OperatesIn
+2023-09-27 21:21:39 - Updating records in: Operation
+2023-09-27 21:21:39 - UPDATE Operation SET GroupLeader = 'D56' WHERE OperationName = 'Operation Thunder' 
+        AND StartDate = '2023-01-01'
+        AND IncidentName = 'Sabotage'
+        AND IncidentNumber = 103
+2023-09-27 21:26:55 - Inserting into: OperatesIn
+2023-09-27 21:27:02 - Inserting into: OperatesIn
+2023-09-27 21:27:05 - Inserting into: OperatesIn
+2023-09-27 21:27:09 - Inserting into: OperatesIn
+2023-09-27 21:27:15 - Inserting into: OperatesIn
+2023-09-27 21:27:19 - Inserting into: OperatesIn
+2023-09-27 21:27:48 - Updating records in: Operation
+2023-09-27 21:39:17 - Inserting into: Terrain
+2023-09-27 21:39:47 - Inserting into: Terrain
+2023-09-27 21:41:43 - Inserting into: OperatesIn
+2023-09-27 21:41:49 - Updating records in: Operation
+2023-09-27 21:47:42 - Inserting into: OperatesIn
+2023-09-27 21:49:22 - Inserting into: Terrain

@@ -37,6 +37,22 @@
         }
     }
 
+    function getTableCount($table) {
+        $db = dbconnection::getInstance();
+        $pdo = $db->getPdo();
+    
+        try {
+            $query = "SELECT COUNT(*) FROM $table";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+            
+            return (int) $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return 0;
+        }
+    }
+
     function RefreshTables() {
         $location = $_SERVER['PHP_SELF'];
         if (!empty($_SERVER['QUERY_STRING'])) {

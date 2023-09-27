@@ -39,9 +39,6 @@
             $setClause = implode(', ', $setClause);
 
             $sql = "UPDATE {$this->tableName} SET {$setClause} WHERE {$this->condition}";
-
-            logg($sql);
-
             $stmt = $this->pdo->prepare($sql);
 
             if (!$stmt->execute()) {

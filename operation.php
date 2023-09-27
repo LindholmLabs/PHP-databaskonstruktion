@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    require 'imports.php';
+    require 'utils/imports.php';
     dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
     $handlerFactory = new InsertHandlerFactory();
 
@@ -17,8 +17,6 @@
               AND StartDate = '{$startDate}'
               AND IncidentName = '{$incidentName}'
               AND IncidentNumber = {$incidentNumber}";
-
-    logg($query);
 
     $pageContent .= "<h3>Agents in $operationName</h3>" . tableFactory::createCustomTable($query);
 
@@ -37,5 +35,5 @@
     $pageContent .= $modalBuilder->build();
     $pageContent .= $modalBuilder->generateOpenButton("Add agent");
 
-    include 'pageTemplate.php';
+    include 'utils/pageTemplate.php';
 ?>

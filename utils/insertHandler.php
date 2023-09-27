@@ -25,6 +25,8 @@
         }
 
         public function handleInsert($data) {
+            logg("Inserting into: " . $this->tableName);
+
             $operationName = $data["OperationName"];
             $startDate = $data["StartDate"];
             $endDate = $data["EndDate"];
@@ -45,8 +47,6 @@
             $stmt->bindParam(6, $incidentName, PDO::PARAM_STR);
             $stmt->bindParam(7, $incidentNumber, PDO::PARAM_INT);
 
-            logg("inserting into table {$this->tableName}");
-
             if (!$stmt->execute()) {
                 throw new Exception("Failed to insert data into {$this->tableName}.");
             }
@@ -66,6 +66,8 @@
         }
 
         public function handleInsert($data) { 
+            logg("Inserting into: " . $this->tableName);
+
             unset($data['tableName']);
 
             $data = $this->convertStringsToAppropriateTypes($data);
@@ -76,8 +78,6 @@
             $sql = "INSERT INTO {$this->tableName} (" . implode(', ', $columns) . ") VALUES (" . implode(', ', $placeholders) . ")";
             
             $stmt = $this->pdo->prepare($sql);
-            
-            logg("inserting into table {$this->tableName}");
 
             if (!$stmt->execute(array_values($data))) {
                 throw new Exception("Failed to insert data into {$this->tableName}.");

@@ -1,5 +1,5 @@
 <?php
-    require 'imports.php';
+    require 'utils/imports.php';
     dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
     $handlerFactory = new InsertHandlerFactory();
 
@@ -21,5 +21,5 @@
     $pageContent .= $modalBuilder->build();
     $pageContent .= $modalBuilder->generateOpenButton("Create incident");
 
-    include 'pageTemplate.php';
+    include 'utils/pageTemplate.php';
 ?>

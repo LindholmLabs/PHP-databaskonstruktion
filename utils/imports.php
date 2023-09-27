@@ -1,6 +1,6 @@
 <?php
-    require 'dbconnection.php';
-    include 'dbhelper.php';
+    require 'db/dbconnection.php';
+    include 'db/dbhelper.php';
     include 'logging.php';
     include 'components.php';
     include 'modalBuilder.php';

@@ -1,0 +1,542 @@
+2023-09-27 12:48:16 - Successrate inserted as 1 of type: integer
+2023-09-27 12:48:47 - Successrate inserted as 1 of type: integer
+2023-09-27 12:49:52 - Successrate inserted as 1 of type: boolean
+2023-09-27 12:54:42 - Successrate inserted as 1 of type: boolean
+2023-09-27 12:56:43 - Successrate inserted as 1 of type: boolean
+2023-09-27 13:10:53 - Successrate inserted as 1 of type: boolean
+2023-09-27 13:13:23 - Successrate inserted as 1 of type: boolean
+2023-09-27 13:13:44 - Successrate inserted as 1 of type: boolean
+2023-09-27 13:13:58 - Successrate inserted as 1 of type: boolean
+2023-09-27 13:25:30 - Key: TerrainCode, Value: 6, Type: string
+2023-09-27 13:25:30 - Key: TerrainName, Value: Tundra, Type: string
+2023-09-27 13:28:36 - Key: TerrainCode, Value: 6, Type: integer
+2023-09-27 13:28:36 - Key: TerrainName, Value: Tundra, Type: string
+2023-09-27 13:30:30 - INSERT INTO FieldAgentAttributes (TerrainCode,TerrainName) VALUES (?,?)
+2023-09-27 13:30:30 - Key: TerrainCode, Value: 6, Type: integer
+2023-09-27 13:30:30 - Key: TerrainName, Value: Tundra, Type: string
+2023-09-27 13:31:05 - INSERT INTO FieldAgentAttributes (TerrainCode, TerrainName) VALUES (?, ?)
+2023-09-27 13:31:05 - Key: TerrainCode, Value: 6, Type: integer
+2023-09-27 13:31:05 - Key: TerrainName, Value: Tundra, Type: string
+2023-09-27 13:32:33 - INSERT INTO Terrain (TerrainCode, TerrainName) VALUES (?, ?)
+2023-09-27 13:32:33 - Key: TerrainCode, Value: 6, Type: integer
+2023-09-27 13:32:33 - Key: TerrainName, Value: Tundra, Type: string
+2023-09-27 13:34:24 - INSERT INTO Agent (CodeName, FirstName, LastName, Salary, IsFieldAgent, IsGroupLeader, IsManager) VALUES (?, ?, ?, ?, ?, ?, ?)
+2023-09-27 13:34:24 - Key: CodeName, Value: K2, Type: string
+2023-09-27 13:34:24 - Key: FirstName, Value: Sol, Type: string
+2023-09-27 13:34:24 - Key: LastName, Value: Solsson, Type: string
+2023-09-27 13:34:24 - Key: Salary, Value: 2000, Type: integer
+2023-09-27 13:34:24 - Key: IsFieldAgent, Value: 0, Type: integer
+2023-09-27 13:34:24 - Key: IsGroupLeader, Value: 0, Type: integer
+2023-09-27 13:34:24 - Key: IsManager, Value: 1, Type: integer
+2023-09-27 13:36:10 - INSERT INTO Incident (RegionName, Location, IncidentName, IncidentNumber, Terrain) VALUES (?, ?, ?, ?, ?)
+2023-09-27 13:36:10 - Key: RegionName, Value: Götaland, Type: string
+2023-09-27 13:36:10 - Key: Location, Value: Sverige, Type: string
+2023-09-27 13:36:10 - Key: IncidentName, Value: Skjutning, Type: string
+2023-09-27 13:36:10 - Key: IncidentNumber, Value: 999, Type: integer
+2023-09-27 13:36:10 - Key: Terrain, Value: 3, Type: integer
+2023-09-27 13:43:23 - Running sql query: 
+2023-09-27 13:45:38 - Running sql query: 
+2023-09-27 13:46:02 - Running sql query: 
+2023-09-27 13:48:50 - Running query: 
+2023-09-27 13:50:57 - inserting into table Terrain
+2023-09-27 14:18:17 - operationName: Operation sol Startdate: 2021-03-23
+2023-09-27 14:19:06 - operationName: Operation sol Startdate: 2021-03-23
+2023-09-27 14:19:06 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = Operation sol AND StartDate = 2021-03-23
+2023-09-27 14:19:09 - operationName: Operation Thunder Startdate: 2023-01-01
+2023-09-27 14:19:09 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = Operation Thunder AND StartDate = 2023-01-01
+2023-09-27 14:19:10 - operationName: Operation Thunder Startdate: 2023-01-01
+2023-09-27 14:19:10 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = Operation Thunder AND StartDate = 2023-01-01
+2023-09-27 14:19:46 - operationName: Operation Thunder Startdate: 2023-01-01
+2023-09-27 14:19:46 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation Thunder' AND StartDate = '2023-01-01'
+2023-09-27 14:19:52 - operationName: Operation Thunder Startdate: 2023-01-01
+2023-09-27 14:19:52 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation Thunder' AND StartDate = '2023-01-01'
+2023-09-27 14:19:54 - operationName: Operation Thunder Startdate: 2023-01-01
+2023-09-27 14:19:54 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation Thunder' AND StartDate = '2023-01-01'
+2023-09-27 14:20:01 - operationName: Operation QuickSilver2 Startdate: 2023-02-05
+2023-09-27 14:20:01 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation QuickSilver2' AND StartDate = '2023-02-05'
+2023-09-27 14:20:03 - operationName: Operation ForestGuard Startdate: 2023-05-01
+2023-09-27 14:20:03 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation ForestGuard' AND StartDate = '2023-05-01'
+2023-09-27 14:20:05 - operationName: Operation DesertStorm Startdate: 2023-04-01
+2023-09-27 14:20:05 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation DesertStorm' AND StartDate = '2023-04-01'
+2023-09-27 14:20:10 - operationName: Operation Sol Startdate: 2023-02-21
+2023-09-27 14:20:10 - query: SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation Sol' AND StartDate = '2023-02-21'
+2023-09-27 14:36:06 - SELECT CodeName 
+              FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10' 
+              AND IncidentName = 'Sabotage' 
+              AND IncidentNumber = '103'
+2023-09-27 14:36:39 - SELECT CodeName FROM OperatesIn WHERE OperationName = 'Operation NightFall' AND StartDate = '2023-03-10' AND IncidentName = 'Sabotage' AND IncidentNumber = '103'
+2023-09-27 14:37:06 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10' 
+              AND IncidentName = 'Sabotage' 
+              AND IncidentNumber = 103
+2023-09-27 14:37:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10' 
+              AND IncidentName = 'Sabotage' 
+              AND IncidentNumber = 103
+2023-09-27 14:37:10 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21' 
+              AND IncidentName = 'Heist' 
+              AND IncidentNumber = 101
+2023-09-27 14:37:12 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01' 
+              AND IncidentName = 'Sabotage' 
+              AND IncidentNumber = 103
+2023-09-27 14:37:43 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = 2023-01-01
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:37:45 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = 2023-02-05
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:39:58 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = 2023-01-01
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:44:02 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:44:05 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver3' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:44:07 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:44:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:44:12 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:44:14 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:44:15 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 14:44:17 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2023-05-23'
+              AND IncidentName = 'Arson'
+              AND IncidentNumber = 108
+2023-09-27 14:44:19 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:44:23 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation ForestGuard' 
+              AND StartDate = '2023-05-01'
+              AND IncidentName = 'Breach'
+              AND IncidentNumber = 105
+2023-09-27 14:46:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:46:16 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:46:34 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:46:39 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:46:39 - inserting into table OperatesIn
+2023-09-27 14:47:04 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:47:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:47:08 - inserting into table OperatesIn
+2023-09-27 14:48:04 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:48:05 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:48:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 14:48:08 - inserting into table OperatesIn
+2023-09-27 14:48:09 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = '' 
+              AND StartDate = ''
+              AND IncidentName = ''
+              AND IncidentNumber = 
+2023-09-27 14:49:05 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:49:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:49:08 - inserting into table OperatesIn
+2023-09-27 14:49:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = '' 
+              AND StartDate = ''
+              AND IncidentName = ''
+              AND IncidentNumber = 
+2023-09-27 14:49:13 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:49:23 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:49:23 - inserting into table OperatesIn
+2023-09-27 14:49:23 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = '' 
+              AND StartDate = ''
+              AND IncidentName = ''
+              AND IncidentNumber = 
+2023-09-27 14:49:49 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 14:53:07 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:53:07 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:53:13 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:53:13 - inserting into table OperatesIn
+2023-09-27 14:53:19 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:53:45 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 14:53:48 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation ForestGuard' 
+              AND StartDate = '2023-05-01'
+              AND IncidentName = 'Breach'
+              AND IncidentNumber = 105
+2023-09-27 14:53:51 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation ForestGuard' 
+              AND StartDate = '2023-05-01'
+              AND IncidentName = 'Breach'
+              AND IncidentNumber = 105
+2023-09-27 14:53:51 - inserting into table OperatesIn
+2023-09-27 14:53:59 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation ForestGuard' 
+              AND StartDate = '2023-05-01'
+              AND IncidentName = 'Breach'
+              AND IncidentNumber = 105
+2023-09-27 15:01:30 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:01:35 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:01:35 - inserting into table OperatesIn
+2023-09-27 15:01:39 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:01:42 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 15:02:31 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:02:34 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:02:34 - inserting into table OperatesIn
+2023-09-27 15:03:34 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:34 - inserting into table OperatesIn
+2023-09-27 15:03:35 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:40 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:43 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:43 - inserting into table OperatesIn
+2023-09-27 15:03:50 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Sol' 
+              AND StartDate = '2023-02-21'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:52 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 15:03:55 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:58 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:03:58 - inserting into table OperatesIn
+2023-09-27 15:04:01 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:04:04 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:04:10 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:04:10 - inserting into table OperatesIn
+2023-09-27 15:04:10 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = '' 
+              AND StartDate = ''
+              AND IncidentName = ''
+              AND IncidentNumber = 
+2023-09-27 15:04:14 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:04:21 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation DesertStorm' 
+              AND StartDate = '2023-04-01'
+              AND IncidentName = 'Espionage'
+              AND IncidentNumber = 104
+2023-09-27 15:04:24 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:04:27 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:04:27 - inserting into table OperatesIn
+2023-09-27 15:04:35 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:04:38 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:04:38 - inserting into table OperatesIn
+2023-09-27 15:04:40 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:04:46 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 15:04:49 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 15:04:49 - inserting into table OperatesIn
+2023-09-27 15:05:58 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 15:07:15 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation ForestGuard' 
+              AND StartDate = '2023-05-01'
+              AND IncidentName = 'Breach'
+              AND IncidentNumber = 105
+2023-09-27 15:07:17 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation sol' 
+              AND StartDate = '2021-03-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:07:19 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Thunder' 
+              AND StartDate = '2023-01-01'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 15:07:21 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 15:07:22 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver2' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:07:32 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:10:23 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:10:26 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation NightFall' 
+              AND StartDate = '2023-03-10'
+              AND IncidentName = 'Sabotage'
+              AND IncidentNumber = 103
+2023-09-27 15:11:04 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:08 - inserting into table OperatesIn
+2023-09-27 15:11:08 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:17 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:17 - inserting into table OperatesIn
+2023-09-27 15:11:23 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:37 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:43 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:11:43 - inserting into table OperatesIn
+2023-09-27 15:11:43 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation QuickSilver1' 
+              AND StartDate = '2023-02-05'
+              AND IncidentName = 'Heist'
+              AND IncidentNumber = 101
+2023-09-27 15:12:04 - inserting into table Agent
+2023-09-27 15:12:39 - inserting into table Operation
+2023-09-27 15:12:42 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Jonas' 
+              AND StartDate = '2021-01-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:12:46 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Jonas' 
+              AND StartDate = '2021-01-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 15:12:46 - inserting into table OperatesIn
+2023-09-27 15:12:47 - SELECT CodeName FROM OperatesIn 
+              WHERE OperationName = 'Operation Jonas' 
+              AND StartDate = '2021-01-23'
+              AND IncidentName = 'Theft'
+              AND IncidentNumber = 110
+2023-09-27 19:09:33 - Inserting into: Agent
+2023-09-27 19:09:53 - Inserting into: OperatesIn
+2023-09-27 19:11:17 - Inserting into: FieldAgentAttributes
+2023-09-27 19:11:34 - Inserting into: OperatesIn
+2023-09-27 19:11:37 - Inserting into: OperatesIn
+2023-09-27 19:11:53 - Inserting into: OperatesIn

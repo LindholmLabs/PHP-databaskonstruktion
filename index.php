@@ -1,5 +1,5 @@
 <?php
-    require 'imports.php';
+    require 'utils/imports.php';
     dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
     $handlerFactory = new InsertHandlerFactory();
 
@@ -38,5 +38,5 @@
     $pageContent .= $agentModalBuilder->build();
     $pageContent .= $agentModalBuilder->generateOpenButton("Hire agent");
 
-    include 'pageTemplate.php';
+    include 'utils/pageTemplate.php';
 ?>

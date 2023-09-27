@@ -4,6 +4,7 @@
         private $columns = [];
         private $dropdownColumns = [];
         private $requiredColumns = [];
+        private $hiddenColumns = [];
         private $modalId;
         private $insertHandler;
             
@@ -29,6 +30,11 @@
                 $this->requiredColumns[] = $column;
             }
 
+            return $this;
+        }
+
+        public function addHiddenColumn($column, $value) {
+            $this->hiddenColumns[$column] = $value;
             return $this;
         }
 
@@ -80,6 +86,10 @@
                                         $options
                                     </select>
                                 </div>";
+            }
+
+            foreach ($this->hiddenColumns as $column => $value) {
+                $modalBody .= "<input type='hidden' name='$column' value='$value'>";
             }
 
             $modalEnd = "</div>

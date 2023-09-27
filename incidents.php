@@ -5,7 +5,9 @@
 
     $pageContent = '';
 
-    $pageContent .= "<h3>Incident</h3>" . tableFactory::createTable("Incident");
+    $query = "SELECT * FROM Incident;";
+
+    $pageContent .= "<h3>Incidents</h3>" . tableFactory::createTableWithRedirect($query, "incident.php", ["IncidentName", "IncidentNumber"]);
 
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')

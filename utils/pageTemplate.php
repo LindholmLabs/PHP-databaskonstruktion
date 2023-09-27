@@ -3,7 +3,8 @@
         'index.php' => 'Agents',
         'incidents.php' => 'Incidents',
         'operations.php' => 'Operations',
-        'terrain.php' => 'Terrain'
+        'terrain.php' => 'Terrain',
+        'reports.php' => 'Reports'
     ];
 ?>
 

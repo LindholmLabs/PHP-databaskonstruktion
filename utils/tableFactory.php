@@ -39,7 +39,7 @@
 
         /**
          * Create table that redirects user to another address on click.
-         * $tableName: The table to display.
+         * $query: The query to be displayed.
          * $adress: The redirect adress. If user clicks a row, redirect to relative adress.
          * $queryColumns: The columns that should be queried in the redirect. 
          * 
@@ -47,7 +47,7 @@
          * Clicking "Operation1" would result in a redirect to "./operationdetails.php/?OperationName=Operation1"
          */
         //
-        public static function createTableWithRedirect($tableName, $address, $queryColumns) {
+        public static function createTableWithRedirect($query, $address, $queryColumns) {
             $db = dbconnection::getInstance();
             $pdo = $db->getPdo();
         
@@ -55,7 +55,7 @@
         
             try {
                 $firstRow = true;
-                foreach($pdo->query('SELECT * FROM ' . $tableName . ';') AS $row) {
+                foreach($pdo->query($query) AS $row) {
                     if($firstRow) {
                         $output .= "<thead class='thead-dark'><tr>";
                         foreach($row as $key => $value) {
@@ -166,6 +166,45 @@
                     $output .= "</div>";
                 }
                 $output .= "</div>";
+        
+                return $output;
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return '';
+            }
+        }
+
+        public static function createTableWithCallbackColumn($query, $function) {
+            $db = dbconnection::getInstance();
+            $pdo = $db->getPdo();
+        
+            $output = "<div class='overflow-auto'><table class='table table-striped table-bordered'>";
+        
+            try {
+                $firstRow = true;
+                foreach($pdo->query($query) AS $row) {
+                    if($firstRow) {
+                        $output .= "<thead class='thead-dark'><tr>";
+                        foreach($row as $key => $value) {
+                            if(!is_numeric($key)) { 
+                                $output .= "<th>" . $key . "</th>";
+                            }
+                        }
+                        
+                        $output .= "<th>Action</th>";
+                        $output .= "</tr></thead><tbody>";
+                        $firstRow = false;
+                    }
+                    $output .= "<tr>";
+                    foreach($row as $key => $value) {
+                        if(!is_numeric($key)) { 
+                            $output .= "<td>" . $value . "</td>";
+                        }
+                    }
+                    $output .= "<td>" . call_user_func($function, $row) . "</td>";
+                    $output .= "</tr>";
+                }
+                $output .= "</tbody></table></div>";
         
                 return $output;
             } catch (PDOException $e) {

@@ -1,6 +1,7 @@
 <?php
     require 'imports.php';
     dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
+    $handlerFactory = new InsertHandlerFactory();
 
     $pageContent = '';
 
@@ -9,9 +10,12 @@
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
             ->setTableName("Terrain")
+            ->setInsertHandler($handlerFactory->createHandler('Terrain'))
             ->addColumn("TerrainCode")
             ->addColumn("TerrainName");
 
+
+    $modalBuilder->handleData();
     $pageContent .= $modalBuilder->build();
     $pageContent .= $modalBuilder->generateOpenButton("Create Terrain");
 

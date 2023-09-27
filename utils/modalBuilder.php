@@ -7,6 +7,7 @@
         private $hiddenColumns = [];
         private $modalId;
         private $insertHandler;
+        private $updateHandler;
             
         public function setTableName($tableName) {
             $this->tableName = $tableName;
@@ -20,6 +21,11 @@
 
         public function setInsertHandler(InsertHandler $handler) {
             $this->insertHandler = $handler;
+            return $this;
+        }
+
+        public function setUpdateHandler(UpdateHandler $handler) {
+            $this->updateHandler = $handler;
             return $this;
         }
     
@@ -49,7 +55,11 @@
 
         public function handleData() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tableName']) && $_POST['tableName'] === $this->tableName) {
-                $this->insertHandler->handleInsert($_POST);
+                if ($this->insertHandler !== null) {
+                    $this->insertHandler->handleInsert($_POST);
+                } elseif ($this->updateHandler !== null) {
+                    $this->updateHandler->handleUpdate($_POST);
+                }
             }
         }
 
@@ -92,9 +102,12 @@
                 $modalBody .= "<input type='hidden' name='$column' value='$value'>";
             }
 
+            $operationType = $this->insertHandler !== null ? "INSERT" : "UPDATE";
+
             $modalEnd = "</div>
                             <div class='modal-footer'>
                                 <input type='hidden' name='tableName' value='{$this->tableName}'>
+                                <input type='hidden' name='operationType' value='{$operationType}'>
                                 <button type='submit' class='btn btn-primary'>Save</button>
                             </div>
                         </div>

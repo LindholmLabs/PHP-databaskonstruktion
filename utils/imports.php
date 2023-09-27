@@ -6,4 +6,5 @@
     include 'modalBuilder.php';
     include 'tableFactory.php';
     include 'insertHandler.php';
+    include 'updateHandler.php';
 ?>

@@ -25,6 +25,8 @@
         }
 
         public function handleInsert($data) {
+            if (!isInsert($data)) return;
+
             logg("Inserting into: " . $this->tableName);
 
             $operationName = $data["OperationName"];
@@ -66,9 +68,12 @@
         }
 
         public function handleInsert($data) { 
+            if (!isInsert($data)) return;
+
             logg("Inserting into: " . $this->tableName);
 
             unset($data['tableName']);
+            unset($data['operationType']);
 
             $data = $this->convertStringsToAppropriateTypes($data);
 
@@ -100,12 +105,7 @@
         }
     }
 
-    function RefreshTables() {
-        $location = $_SERVER['PHP_SELF'];
-        if (!empty($_SERVER['QUERY_STRING'])) {
-            $location .= "?" . $_SERVER['QUERY_STRING'];
-        }
-        header("Location: " . $location);
-        exit();
+    function isInsert($postData) {
+        return $postData["operationType"] === "INSERT" ? true : false;
     }
 ?>

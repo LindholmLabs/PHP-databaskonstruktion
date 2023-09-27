@@ -36,4 +36,13 @@
             return [];
         }
     }
+
+    function RefreshTables() {
+        $location = $_SERVER['PHP_SELF'];
+        if (!empty($_SERVER['QUERY_STRING'])) {
+            $location .= "?" . $_SERVER['QUERY_STRING'];
+        }
+        header("Location: " . $location);
+        exit();
+    }
 ?>

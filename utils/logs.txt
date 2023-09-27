@@ -540,3 +540,56 @@
 2023-09-27 19:11:34 - Inserting into: OperatesIn
 2023-09-27 19:11:37 - Inserting into: OperatesIn
 2023-09-27 19:11:53 - Inserting into: OperatesIn
+2023-09-27 20:38:14 - Inserting into: OperatesIn
+2023-09-27 20:38:22 - Inserting into: OperatesIn
+2023-09-27 20:39:17 - Inserting into: OperatesIn
+2023-09-27 20:39:25 - Inserting into: OperatesIn
+2023-09-27 20:49:33 - Updating records in: Operation
+2023-09-27 20:50:16 - Updating records in: Operation
+2023-09-27 20:50:42 - Updating records in: Operation
+2023-09-27 20:50:42 - UPDATE Operation SET CodeName = ?, tableName = ?, operationType = ? WHERE 
+2023-09-27 20:52:05 - Inserting into: Agent
+2023-09-27 20:53:47 - Inserting into: Agent
+2023-09-27 20:54:31 - Updating records in: Operation
+2023-09-27 20:54:31 - UPDATE Operation SET CodeName = ? WHERE 
+2023-09-27 21:12:39 - Updating records in: Operation
+2023-09-27 21:12:39 - UPDATE Operation SET CodeName = CodeName WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:14:49 - Updating records in: Operation
+2023-09-27 21:14:49 - UPDATE Operation SET CodeName = 'CodeName' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:14:55 - Updating records in: Operation
+2023-09-27 21:14:55 - UPDATE Operation SET GroupLeader = 'GroupLeader' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:17:08 - Updating records in: Operation
+2023-09-27 21:17:08 - Array
+2023-09-27 21:17:08 - UPDATE Operation SET GroupLeader = 'GroupLeader' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:18:22 - Updating records in: Operation
+2023-09-27 21:18:22 - UPDATE Operation SET GroupLeader = 'A1' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:20:13 - Updating records in: Operation
+2023-09-27 21:20:13 - UPDATE Operation SET GroupLeader = 'A1' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:20:16 - Updating records in: Operation
+2023-09-27 21:20:16 - UPDATE Operation SET GroupLeader = 'L29' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110
+2023-09-27 21:20:19 - Updating records in: Operation
+2023-09-27 21:20:19 - UPDATE Operation SET GroupLeader = 'D56' WHERE OperationName = 'Operation sol' 
+        AND StartDate = '2021-03-23'
+        AND IncidentName = 'Theft'
+        AND IncidentNumber = 110

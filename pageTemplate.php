@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PUCKO-PORTAL</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -48,7 +47,7 @@
     
     <br><br><br><br><br><br>
 
-    <footer class="footer py-3 bg-dark text-white text-center">
+    <footer class="footer py-3 bg-dark text-white text-center fixed-bottom">
         <div class="container">
             <p>&copy;<?php date('Y');?> PUCKO-PORTAL. All rights reserved.</p>
         </div>

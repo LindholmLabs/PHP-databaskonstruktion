@@ -5,6 +5,7 @@
         private $dropdownColumns = [];
         private $requiredColumns = [];
         private $modalId;
+        private $insertHandler;
             
         public function setTableName($tableName) {
             $this->tableName = $tableName;
@@ -13,6 +14,11 @@
     
         public function setModalId($modalId = "modal") {
             $this->modalId = $modalId;
+            return $this;
+        }
+
+        public function setInsertHandler(InsertHandler $handler) {
+            $this->insertHandler = $handler;
             return $this;
         }
     
@@ -33,6 +39,12 @@
     
         public function generateOpenButton($label = "Open Modal") {
             return "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#{$this->modalId}'>{$label}</button>";
+        }
+
+        public function handleData() {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tableName']) && $_POST['tableName'] === $this->tableName) {
+                $this->insertHandler->handleInsert($_POST);
+            }
         }
 
         public function build() {

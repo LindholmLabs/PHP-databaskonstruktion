@@ -4,7 +4,7 @@
 
     $pageContent = '';
 
-    $pageContent .= "<h3>Operations</h3>" . displayTable("Operation");
+    $pageContent .= "<h3>Operations</h3>" . tableFactory::createTable("Operation");
 
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
@@ -13,7 +13,7 @@
             ->addColumn("StartDate")
             ->addColumn("EndDate", true)
             ->addColumn("SuccessRate", true)
-            ->addDropdownColumn("GroupLeader", ['True', 'False']) #add GetColumnValues(table, column);
+            ->addDropdownColumn("GroupLeader", getColumnValues("GroupLeaders", "CodeName"))
             ->addDropdownColumn("Incident", ['True', 'False']); #add GetCompositeKeyValues();
 
     $pageContent .= $modalBuilder->build();

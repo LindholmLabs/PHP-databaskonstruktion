@@ -49,7 +49,7 @@
 
     <footer class="footer py-3 bg-dark text-white text-center fixed-bottom">
         <div class="container">
-            <p>&copy;<?php date('Y');?> PUCKO-PORTAL. All rights reserved.</p>
+            <p>&copy;<?php echo date('Y');?> PUCKO-PORTAL. All rights reserved.</p>
         </div>
     </footer>
 </body>

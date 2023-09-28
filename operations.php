@@ -14,8 +14,8 @@
             ->setTableName("Operation")
             ->setPostHandler($handlerFactory->createHandler('Operation'))
             ->addColumn("OperationName")
-            ->addColumn("StartDate")
-            ->addColumn("EndDate", true)
+            ->addDateColumn("StartDate")
+            ->addDateColumn("EndDate")
             ->addColumn("SuccessRate", true)
             ->addDropdownColumn("GroupLeader", getColumnValues("GroupLeaders", "CodeName"))
             ->addDropdownColumn("Incident", GetCompositeKeyValues("Incident", ["IncidentName", "IncidentNumber"]));

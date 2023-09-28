@@ -744,3 +744,19 @@
 2023-09-28 15:34:06 - Inserting into: Agent
 2023-09-28 15:34:30 - Inserting into: FieldAgentAttributes
 2023-09-28 15:34:50 - Inserting into: OperatesIn
+2023-09-28 15:36:40 - Incident: 'Sabotage', '103'
+2023-09-28 15:42:58 - Inserting into: Operation
+2023-09-28 15:42:58 - calling from OperationInsertHandler: $incident = Heist, 101
+2023-09-28 15:42:58 - IncidentName= Heist
+2023-09-28 15:42:58 - IncidentNumber= 101
+2023-09-28 15:43:15 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:43:30 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:43:58 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:44:15 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:44:15 - Inserting into: Report
+2023-09-28 15:44:15 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:45:03 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:45:03 - Inserting into: Report
+2023-09-28 15:45:03 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:45:11 - Incident: 'asdasdasd', '12312323'
+2023-09-28 15:45:12 - Incident: 'asdasdasd', '12312323'

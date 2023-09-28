@@ -5,6 +5,7 @@
         private $dropdownColumns = [];
         private $requiredColumns = [];
         private $hiddenColumns = [];
+        private $dateColumns = [];
         private $modalId;
         private $postHandler;
             
@@ -30,6 +31,11 @@
                 $this->requiredColumns[] = $column;
             }
 
+            return $this;
+        }
+
+        public function addDateColumn($column) {
+            $this->dateColumns[] = $column;
             return $this;
         }
 
@@ -73,6 +79,13 @@
                                     <label for='$column'>$column</label>
                                     <input type='text' class='form-control' id='$column' name='$column' placeholder='$column' $required>
                                 </div>";
+            }
+
+            foreach ($this->dateColumns as $column) {
+                $modalBody .= "<div class='form-group'>
+                                <label for='$column'>$column</label>
+                                <input type='date' class='form-control' id='$column' name='$column'>
+                            </div>";
             }
 
             foreach ($this->dropdownColumns as $column => $values) {

@@ -10,7 +10,7 @@
     $attributeModalBuilder = (new ModalBuilder())
             ->setModalId('insertAttributeModal')
             ->setTableName("FieldAgentAttributes")
-            ->setInsertHandler($handlerFactory->createHandler('FieldAgentAttributes'))
+            ->setPostHandler($handlerFactory->createHandler('FieldAgentAttributes'))
             ->addDropdownColumn("AgentCodeName", getColumnValues("FieldAgents", "CodeName"))
             ->addColumn("Specialty")
             ->addColumn("Competence");
@@ -30,7 +30,7 @@
     $agentModalBuilder = (new ModalBuilder())
             ->setModalId('insertAgentModal')
             ->setTableName("Agent")
-            ->setInsertHandler($handlerFactory->createHandler('Agent'))
+            ->setPostHandler($handlerFactory->createHandler('Agent'))
             ->addColumn("CodeName")
             ->addColumn("FirstName")
             ->addColumn("LastName")

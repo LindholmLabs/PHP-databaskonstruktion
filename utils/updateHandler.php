@@ -1,8 +1,4 @@
 <?php
-    interface UpdateHandler {
-        public function handleUpdate($data);
-    }
-
     class UpdateHandlerFactory {
         public function createHandler($tableName, $condition) {
             switch ($tableName) {
@@ -12,7 +8,7 @@
         }
     }
 
-    class GenericUpdateHandler implements UpdateHandler {
+    class GenericUpdateHandler implements PostHandler {
         private $tableName;
         private $pdo;
         private $condition;
@@ -24,7 +20,7 @@
             $this->pdo = $db->getPdo();
         }
 
-        public function handleUpdate($data) {
+        public function handlePostData($data) {
             if (!isUpdate($data)) return;
             
             logg("Updating records in: " . $this->tableName);
@@ -46,6 +42,10 @@
             }
 
             RefreshTables();
+        }
+
+        public function getOperationType() {
+            return "UPDATE";
         }
     }
 

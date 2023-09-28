@@ -12,16 +12,18 @@
 
     $pageContent .= "<h3>Operations in $incidentName</h3>" . tableFactory::createTableWithRedirect($queryOperations, "operation.php", ["OperationName", "StartDate", "IncidentName", "IncidentNumber"]);
 
+    logg("Incident: " . "'{$incidentName}', '{$incidentNumber}'");
+
     $operationModalBuilder = (new ModalBuilder())
             ->setModalId('insertOperation')
             ->setTableName("Operation")
-            ->setInsertHandler($handlerFactory->createHandler('Operation'))
+            ->setPostHandler($handlerFactory->createHandler('Operation'))
             ->addColumn("OperationName")
             ->addColumn("StartDate")
             ->addColumn("EndDate", true)
             ->addColumn("SuccessRate", true)
             ->addDropdownColumn("GroupLeader", getColumnValues("GroupLeaders", "CodeName"))
-            ->addHiddenColumn("Incident", "'{$incidentName}', '{$incidentNumber}'");
+            ->addHiddenColumn("Incident", "{$incidentName}, {$incidentNumber}");
 
     $operationModalBuilder->handleData();
     $pageContent .= $operationModalBuilder->build();
@@ -52,7 +54,7 @@
     $WriteReportModal = (new ModalBuilder())
             ->setModalId('insertReport')
             ->setTableName("Report")
-            ->setInsertHandler($handlerFactory->createHandler('Report'))
+            ->setPostHandler($handlerFactory->createHandler('Report'))
             ->addColumn("Title")
             ->addColumn("DateCreated")
             ->addDropdownColumn("Author", getColumnValues("Agent", "CodeName"))
@@ -63,6 +65,10 @@
     $WriteReportModal->handleData();
     $pageContent .= $WriteReportModal->build();
     $pageContent .= $WriteReportModal->generateOpenButton("Write Report");
+
+    $pageContent .= "<hr>";
+
+
 
     include 'utils/pageTemplate.php';
 ?>

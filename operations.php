@@ -12,7 +12,7 @@
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
             ->setTableName("Operation")
-            ->setInsertHandler($handlerFactory->createHandler('Operation'))
+            ->setPostHandler($handlerFactory->createHandler('Operation'))
             ->addColumn("OperationName")
             ->addColumn("StartDate")
             ->addColumn("EndDate", true)

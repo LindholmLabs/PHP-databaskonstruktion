@@ -6,8 +6,7 @@
         private $requiredColumns = [];
         private $hiddenColumns = [];
         private $modalId;
-        private $insertHandler;
-        private $updateHandler;
+        private $postHandler;
             
         public function setTableName($tableName) {
             $this->tableName = $tableName;
@@ -19,13 +18,8 @@
             return $this;
         }
 
-        public function setInsertHandler(InsertHandler $handler) {
-            $this->insertHandler = $handler;
-            return $this;
-        }
-
-        public function setUpdateHandler(UpdateHandler $handler) {
-            $this->updateHandler = $handler;
+        public function setPostHandler(PostHandler $handler) {
+            $this->postHandler = $handler;
             return $this;
         }
     
@@ -55,11 +49,7 @@
 
         public function handleData() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tableName']) && $_POST['tableName'] === $this->tableName) {
-                if ($this->insertHandler !== null) {
-                    $this->insertHandler->handleInsert($_POST);
-                } elseif ($this->updateHandler !== null) {
-                    $this->updateHandler->handleUpdate($_POST);
-                }
+                $this->postHandler->handlePostData($_POST);
             }
         }
 
@@ -99,15 +89,13 @@
             }
 
             foreach ($this->hiddenColumns as $column => $value) {
-                $modalBody .= "<input type='hidden' name='$column' value='$value'>";
+                $modalBody .= "<input type=\"hidden\" name=\"$column\" value=\"$value\">";
             }
-
-            $operationType = $this->insertHandler !== null ? "INSERT" : "UPDATE";
 
             $modalEnd = "</div>
                             <div class='modal-footer'>
                                 <input type='hidden' name='tableName' value='{$this->tableName}'>
-                                <input type='hidden' name='operationType' value='{$operationType}'>
+                                <input type='hidden' name='operationType' value='{$this->postHandler->getOperationType()}'>
                                 <button type='submit' class='btn btn-primary'>Save</button>
                             </div>
                         </div>

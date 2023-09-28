@@ -10,7 +10,7 @@
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
             ->setTableName("Terrain")
-            ->setInsertHandler($handlerFactory->createHandler('Terrain'))
+            ->setPostHandler($handlerFactory->createHandler('Terrain'))
             ->addHiddenColumn("TerrainCode", getTableCount('Terrain') + 1)
             ->addColumn("TerrainName"); 
 

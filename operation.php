@@ -24,7 +24,7 @@
     $addAgentModalBuilder = (new ModalBuilder())
         ->setModalId('insertModal')
         ->setTableName("OperatesIn")
-        ->setInsertHandler($handlerFactory->createHandler('OperatesIn'))
+        ->setPostHandler($handlerFactory->createHandler('OperatesIn'))
         ->addHiddenColumn("OperationName", $operationName)
         ->addHiddenColumn("StartDate", $startDate)
         ->addHiddenColumn("IncidentName", $incidentName)
@@ -54,7 +54,7 @@
     $updateGroupLeaderModalBuilder = (new ModalBuilder())
         ->setModalId('updateModal')
         ->setTableName("OperatesIn")
-        ->setUpdateHandler($updateFactory->createHandler("Operation",  $condition))
+        ->setPostHandler($updateFactory->createHandler("Operation",  $condition))
         ->addDropdownColumn("GroupLeader", getColumnValues("GroupLeaders", "CodeName"));
 
     $updateGroupLeaderModalBuilder->handleData();

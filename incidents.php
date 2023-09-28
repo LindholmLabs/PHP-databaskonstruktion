@@ -12,7 +12,7 @@
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')
             ->setTableName("Incident")
-            ->setInsertHandler($handlerFactory->createHandler('Incident'))
+            ->setPostHandler($handlerFactory->createHandler('Incident'))
             ->addColumn("RegionName")
             ->addColumn("Location")
             ->addColumn("IncidentName")

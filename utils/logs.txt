@@ -634,3 +634,113 @@
 2023-09-27 23:36:01 - Inserting into: Report
 2023-09-27 23:36:30 - Inserting into: Report
 2023-09-27 23:37:26 - Inserting into: Report
+2023-09-27 23:45:11 - Inserting into: OperatesIn
+2023-09-27 23:45:19 - Inserting into: OperatesIn
+2023-09-27 23:45:58 - Inserting into: Agent
+2023-09-27 23:46:59 - Inserting into: OperatesIn
+2023-09-27 23:47:04 - Inserting into: OperatesIn
+2023-09-27 23:47:25 - Inserting into: OperatesIn
+2023-09-27 23:47:45 - Inserting into: FieldAgentAttributes
+2023-09-27 23:48:16 - Inserting into: Report
+2023-09-27 23:48:27 - Inserting into: Operation
+2023-09-27 23:48:48 - Inserting into: Operation
+2023-09-27 23:50:08 - Inserting into: Operation
+2023-09-27 23:51:13 - Inserting into: Operation
+2023-09-27 23:53:14 - Incident
+2023-09-27 23:53:15 - Incident
+2023-09-27 23:53:52 - Incident: 'Sabotage', '103
+2023-09-27 23:54:00 - Incident: 'Sabotage', '103
+2023-09-27 23:54:01 - Incident: 'Sabotage', '103
+2023-09-27 23:54:01 - Incident: 'Sabotage', '103
+2023-09-27 23:54:01 - Incident: 'Sabotage', '103
+2023-09-28 08:19:04 - Incident: 'Arson', '108
+2023-09-28 08:19:11 - Inserting into: OperatesIn
+2023-09-28 08:19:19 - Inserting into: OperatesIn
+2023-09-28 08:19:58 - Incident: 'Arson', '108
+2023-09-28 08:19:58 - Inserting into: Operation
+2023-09-28 10:14:34 - Incident: 'Arson', '108
+2023-09-28 10:14:37 - Incident: 'Arson', '108
+2023-09-28 10:15:09 - Incident: 'asdasd', '123123
+2023-09-28 10:15:13 - Incident: 'asdasd', '123123
+2023-09-28 10:15:14 - Incident: 'asdasd', '123123
+2023-09-28 14:54:11 - Incident: 'asdasd', '123123
+2023-09-28 14:54:15 - Incident: 'inringning', '901
+2023-09-28 14:54:37 - Incident: 'inringning', '901
+2023-09-28 14:54:37 - Inserting into: Report
+2023-09-28 14:54:37 - Incident: 'inringning', '901
+2023-09-28 14:54:46 - Incident: 'inringning', '901
+2023-09-28 14:54:46 - Inserting into: Operation
+2023-09-28 15:10:59 - Incident: 'inringning', '901
+2023-09-28 15:11:01 - Incident: 'inringning', '901
+2023-09-28 15:12:00 - Incident: 'inringning', '901
+2023-09-28 15:12:00 - Incident: 'inringning', '901
+2023-09-28 15:13:02 - Incident: 'inringning', '901
+2023-09-28 15:13:03 - Incident: 'inringning', '901
+2023-09-28 15:13:06 - Incident: 'inringning', '901
+2023-09-28 15:13:24 - Incident: 'inringning', '901
+2023-09-28 15:13:40 - Incident: 'inringning', '901
+2023-09-28 15:13:51 - Incident: 'inringning', '901
+2023-09-28 15:13:51 - Inserting into: Operation
+2023-09-28 15:15:42 - Incident: 'inringning', '901
+2023-09-28 15:15:42 - Inserting into: Operation
+2023-09-28 15:15:42 - 
+2023-09-28 15:17:19 - Incident: 'inringning', '901
+2023-09-28 15:17:20 - Incident: 'inringning', '901
+2023-09-28 15:17:20 - Incident: 'inringning', '901
+2023-09-28 15:17:34 - Incident: 'inringning', '901
+2023-09-28 15:17:34 - Inserting into: Operation
+2023-09-28 15:17:34 - 
+2023-09-28 15:19:23 - Incident: 'inringning', '901'
+2023-09-28 15:19:23 - Inserting into: Operation
+2023-09-28 15:19:23 - calling from OperationInsertHandler: $incident = 
+2023-09-28 15:20:06 - Incident: 'inringning', '901'
+2023-09-28 15:20:07 - Incident: 'inringning', '901'
+2023-09-28 15:22:30 - Inserting into: OperatesIn
+2023-09-28 15:22:33 - Updating records in: Operation
+2023-09-28 15:22:36 - Updating records in: Operation
+2023-09-28 15:24:54 - Incident: 'Arson', '108'
+2023-09-28 15:26:35 - Incident: 'Arson', '108'
+2023-09-28 15:26:43 - Incident: 'Arson', '108'
+2023-09-28 15:27:02 - Incident: 'Arson', '108'
+2023-09-28 15:27:23 - Incident: 'Arson', '108'
+2023-09-28 15:27:23 - Inserting into: Operation
+2023-09-28 15:27:23 - calling from OperationInsertHandler: $incident = 'Arson', '108'
+2023-09-28 15:27:36 - Incident: 'Arson', '108'
+2023-09-28 15:27:57 - Incident: 'Arson', '108'
+2023-09-28 15:28:09 - Incident: 'Arson', '108'
+2023-09-28 15:28:09 - Inserting into: Operation
+2023-09-28 15:28:09 - calling from OperationInsertHandler: $incident = 'Arson', '108'
+2023-09-28 15:28:29 - Incident: 'Arson', '108'
+2023-09-28 15:28:47 - Incident: '213123asd', '234234'
+2023-09-28 15:28:56 - Incident: '213123asd', '234234'
+2023-09-28 15:28:56 - Inserting into: Operation
+2023-09-28 15:28:56 - calling from OperationInsertHandler: $incident = '213123asd', '234234'
+2023-09-28 15:30:09 - Incident: '213123asd', '234234'
+2023-09-28 15:30:09 - Inserting into: Operation
+2023-09-28 15:30:09 - calling from OperationInsertHandler: $incident = '213123asd', '234234'
+2023-09-28 15:30:09 - IncidentName= '213123asd'
+2023-09-28 15:30:09 - IncidentNumber= '234234'
+2023-09-28 15:30:26 - Incident: '213123asd', '234234'
+2023-09-28 15:30:52 - Incident: 'Hijacking', '107'
+2023-09-28 15:31:01 - Incident: 'Hijacking', '107'
+2023-09-28 15:31:01 - Inserting into: Operation
+2023-09-28 15:31:01 - calling from OperationInsertHandler: $incident = 'Hijacking', '107'
+2023-09-28 15:31:01 - IncidentName= 'Hijacking'
+2023-09-28 15:31:01 - IncidentNumber= '107'
+2023-09-28 15:31:48 - Incident: 'Hijacking', '107'
+2023-09-28 15:31:48 - Inserting into: Operation
+2023-09-28 15:31:48 - calling from OperationInsertHandler: $incident = 'Hijacking', '107'
+2023-09-28 15:31:48 - IncidentName= 'Hijacking'
+2023-09-28 15:31:48 - IncidentNumber= '107'
+2023-09-28 15:32:00 - Incident: 'Hijacking', '107'
+2023-09-28 15:32:05 - Incident: 'Hijacking', '107'
+2023-09-28 15:32:05 - Inserting into: Operation
+2023-09-28 15:32:05 - calling from OperationInsertHandler: $incident = Hijacking, 107
+2023-09-28 15:32:05 - IncidentName= Hijacking
+2023-09-28 15:32:05 - IncidentNumber= 107
+2023-09-28 15:32:05 - Incident: 'Hijacking', '107'
+2023-09-28 15:33:06 - Inserting into: OperatesIn
+2023-09-28 15:33:34 - Incident: 'Kidnapping', '102'
+2023-09-28 15:34:06 - Inserting into: Agent
+2023-09-28 15:34:30 - Inserting into: FieldAgentAttributes
+2023-09-28 15:34:50 - Inserting into: OperatesIn

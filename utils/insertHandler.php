@@ -1,8 +1,4 @@
 <?php
-    interface InsertHandler {
-        public function handleInsert($data);
-    }
-
     class InsertHandlerFactory {
         public function createHandler($tableName) {
             switch ($tableName) {
@@ -14,7 +10,7 @@
         }
     }
     
-    class OperationInsertHandler implements InsertHandler {
+    class OperationInsertHandler implements PostHandler {
         private $tableName;
         private $pdo;
 
@@ -24,7 +20,7 @@
             $this->pdo = $db->getPdo();
         }
 
-        public function handleInsert($data) {
+        public function handlePostData($data) {
             if (!isInsert($data)) return;
 
             logg("Inserting into: " . $this->tableName);
@@ -35,7 +31,13 @@
             $successRate = (bool) $data["SuccessRate"] ? true : false;
             $groupLeader = $data["GroupLeader"];
             $incident = $data["Incident"];
+
+            logg("calling from OperationInsertHandler: \$incident = " . $incident);
+
             list($incidentName, $incidentNumber) = explode(", ", $incident);
+
+            logg("IncidentName= " . $incidentName);
+            logg("IncidentNumber= " . $incidentNumber);
 
             $query = "INSERT INTO {$this->tableName} (OperationName, StartDate, EndDate, SuccessRate, GroupLeader, IncidentName, IncidentNumber) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -55,9 +57,13 @@
 
             RefreshTables();
         }
+
+        public function getOperationType() {
+            return "INSERT";
+        }
     }
 
-    class GenericInsertHandler implements InsertHandler {
+    class GenericInsertHandler implements PostHandler {
         private $tableName;
         private $pdo;
 
@@ -67,7 +73,7 @@
             $this->pdo = $db->getPdo();
         }
 
-        public function handleInsert($data) { 
+        public function handlePostData($data) { 
             if (!isInsert($data)) return;
 
             logg("Inserting into: " . $this->tableName);
@@ -102,6 +108,10 @@
                 }
             }
             return $data;
+        }
+
+        public function getOperationType() {
+            return "INSERT";
         }
     }
 

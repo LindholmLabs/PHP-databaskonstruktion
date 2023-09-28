@@ -61,32 +61,4 @@
         header("Location: " . $location);
         exit();
     }
-
-    function HandleProcedure($postData) {
-        if (isset($postData['OperationType']) && $postData['OperationType'] == 'EXECUTE') {
-            
-            try {
-                $db = dbconnection::getInstance();
-                $pdo = $db->getPdo();
-    
-                if (isset($postData['Function'])) {
-                    $procedureName = $postData['Function'];
-    
-                    $dateCreated = $postData['DateCreated'];
-                    $title = $postData['Title'];
-    
-                    $sql = "CALL {$procedureName}(:dateCreated, :title)";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->bindParam(':dateCreated', $dateCreated);
-                    $stmt->bindParam(':title', $title);
-                        
-                    $stmt->execute();
-                }
-            } catch(PDOException $e) {
-                echo "Error: " . $e->getMessage();
-            }
-    
-            RefreshTables();
-        }
-    }
 ?>

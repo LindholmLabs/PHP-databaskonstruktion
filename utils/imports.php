@@ -8,4 +8,5 @@
     include 'postHandlerInterface.php';
     include 'insertHandler.php';
     include 'updateHandler.php';
+    include 'procedureHandler.php';
 ?>

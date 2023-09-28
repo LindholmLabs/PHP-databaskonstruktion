@@ -2,6 +2,7 @@
     require 'utils/imports.php';
     dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
     $handlerFactory = new InsertHandlerFactory();
+    $procedureHandler = new ProcedureHandler();
 
     $incidentName = urldecode($_GET['IncidentName']);
     $incidentNumber = urldecode($_GET['IncidentNumber']);
@@ -49,7 +50,8 @@
         </form>";
     }
 
-    HandleProcedure($_POST);
+    //Run archive report procedure
+    $procedureHandler->handlePostData($_POST);
 
     $WriteReportModal = (new ModalBuilder())
             ->setModalId('insertReport')

@@ -2,39 +2,11 @@
     class tableFactory {
 
         //create table
-        public static function createTable($tableName) {
-            $db = dbconnection::getInstance();
-            $pdo = $db->getPdo();
+        public static function createTable($query) {
+            $sql = "SELECT * FROM $query;";
 
-            $output = "<div class='overflow-auto'><table class='table table-striped table-bordered'>";
-
-            try {
-                $firstRow = true;
-                foreach($pdo->query('SELECT * FROM ' . $tableName . ';') AS $row) {
-                    if($firstRow) {
-                        $output .= "<thead class='thead-dark'><tr>";
-                        foreach($row as $key => $value) {
-                            if(!is_numeric($key)) { 
-                                $output .= "<th>" . $key . "</th>";
-                            }
-                        }
-                        $output .= "</tr></thead><tbody>";
-                        $firstRow = false;
-                    }
-                    $output .= "<tr>";
-                    foreach($row as $key => $value) {
-                        if(!is_numeric($key)) { 
-                            $output .= "<td>" . $value . "</td>";
-                        }
-                    }
-                }
-                $output .= "</tbody></table></div>";
-
-                return $output;
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-                return '';
-            }
+            $tableBuilder = (new TableBuilder($sql));
+            return $tableBuilder->buildTable();
         }
 
         /**
@@ -46,87 +18,17 @@
          * Ex: CreateTableWithRedirect("Operation", "operationdetails.php", ["OperationName"]),
          * Clicking "Operation1" would result in a redirect to "./operationdetails.php/?OperationName=Operation1"
          */
-        //
         public static function createTableWithRedirect($query, $address, $queryColumns) {
-            $db = dbconnection::getInstance();
-            $pdo = $db->getPdo();
-        
-            $output = "<div class='overflow-auto'><table class='table table-striped table-bordered table-hover'>";
-        
-            try {
-                $firstRow = true;
-                foreach($pdo->query($query) AS $row) {
-                    if($firstRow) {
-                        $output .= "<thead class='thead-dark'><tr>";
-                        foreach($row as $key => $value) {
-                            if(!is_numeric($key)) { 
-                                $output .= "<th>" . $key . "</th>";
-                            }
-                        }
-                        $output .= "</tr></thead><tbody>";
-                        $firstRow = false;
-                    }
-        
-                    $queryParams = [];
-                    foreach ($queryColumns as $col) {
-                        $queryParams[] = $col . "=" . urlencode($row[$col]);
-                    }
-                    $redirectUrl = $address . "?" . implode("&", $queryParams);
-        
-                    $output .= "<tr onclick=\"window.location.href = '" . $redirectUrl . "'\" style='cursor: pointer;'>";
-                    foreach($row as $key => $value) {
-                        if(!is_numeric($key)) { 
-                            $output .= "<td>" . $value . "</td>";
-                        }
-                    }
-                    $output .= "</tr>";
-                }
-                $output .= "</tbody></table></div>";
-        
-                return $output;
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-                return '';
-            }
+            $tableBuilder = (new TableBuilder($query));
+            return $tableBuilder->setRedirect($address, $queryColumns)->buildTable();
         }
 
         /**
          * Create a custom table, that displays any table generated from an sql query.
          */
         public static function createCustomTable($query) {
-            $db = dbconnection::getInstance();
-            $pdo = $db->getPdo();
-        
-            $output = "<div class='overflow-auto'><table class='table table-striped table-bordered'>";
-        
-            try {
-                $firstRow = true;
-                foreach($pdo->query($query) AS $row) {
-                    if($firstRow) {
-                        $output .= "<thead class='thead-dark'><tr>";
-                        foreach($row as $key => $value) {
-                            if(!is_numeric($key)) { 
-                                $output .= "<th>" . $key . "</th>";
-                            }
-                        }
-                        $output .= "</tr></thead><tbody>";
-                        $firstRow = false;
-                    }
-                    $output .= "<tr>";
-                    foreach($row as $key => $value) {
-                        if(!is_numeric($key)) { 
-                            $output .= "<td>" . $value . "</td>";
-                        }
-                    }
-                    $output .= "</tr>";
-                }
-                $output .= "</tbody></table></div>";
-        
-                return $output;
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-                return '';
-            }
+            $tableBuilder = (new TableBuilder($query));
+            return $tableBuilder->buildTable();
         }
 
         /**
@@ -174,43 +76,13 @@
             }
         }
 
+        /**
+         * Specify a callback function which will be called when a user presses a row.
+         * @param $function = the callback function (function foo($row))
+         */
         public static function createTableWithCallbackColumn($query, $function) {
-            $db = dbconnection::getInstance();
-            $pdo = $db->getPdo();
-        
-            $output = "<div class='overflow-auto'><table class='table table-striped table-bordered'>";
-        
-            try {
-                $firstRow = true;
-                foreach($pdo->query($query) AS $row) {
-                    if($firstRow) {
-                        $output .= "<thead class='thead-dark'><tr>";
-                        foreach($row as $key => $value) {
-                            if(!is_numeric($key)) { 
-                                $output .= "<th>" . $key . "</th>";
-                            }
-                        }
-                        
-                        $output .= "<th>Action</th>";
-                        $output .= "</tr></thead><tbody>";
-                        $firstRow = false;
-                    }
-                    $output .= "<tr>";
-                    foreach($row as $key => $value) {
-                        if(!is_numeric($key)) { 
-                            $output .= "<td>" . $value . "</td>";
-                        }
-                    }
-                    $output .= "<td>" . call_user_func($function, $row) . "</td>";
-                    $output .= "</tr>";
-                }
-                $output .= "</tbody></table></div>";
-        
-                return $output;
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-                return '';
-            }
+            $tableBuilder = (new TableBuilder($query));
+            return $tableBuilder->addActionColumn($function)->buildTable();
         }
     }
 ?>

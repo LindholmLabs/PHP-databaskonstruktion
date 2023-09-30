@@ -776,3 +776,156 @@
 2023-09-28 16:03:07 - Incident: 'Espionage', '104'
 2023-09-28 16:03:09 - Incident: 'Espionage', '104'
 2023-09-28 16:03:09 - Incident: 'Espionage', '104'
+2023-09-28 16:05:36 - Inserting into: OperatesIn
+2023-09-28 16:05:41 - Updating records in: Operation
+2023-09-28 16:05:44 - Updating records in: Operation
+2023-09-28 16:05:49 - Incident: '123asd', '123123123'
+2023-09-28 16:05:54 - Incident: 'Kidnapping', '102'
+2023-09-28 16:06:16 - Incident: 'Kidnapping', '102'
+2023-09-28 16:06:16 - Inserting into: Operation
+2023-09-28 16:06:16 - calling from OperationInsertHandler: $incident = Kidnapping, 102
+2023-09-28 16:06:16 - IncidentName= Kidnapping
+2023-09-28 16:06:16 - IncidentNumber= 102
+2023-09-28 16:06:16 - Incident: 'Kidnapping', '102'
+2023-09-28 16:06:23 - Inserting into: OperatesIn
+2023-09-28 16:06:26 - Inserting into: OperatesIn
+2023-09-28 16:06:31 - Updating records in: Operation
+2023-09-28 16:06:54 - Inserting into: Agent
+2023-09-28 16:07:11 - Updating records in: Operation
+2023-09-28 16:07:38 - Incident: 'Sabotage', '103'
+2023-09-28 16:07:41 - Incident: 'Arson', '108'
+2023-09-28 16:07:45 - Incident: 'Theft', '110'
+2023-09-28 16:07:48 - Incident: 'Sabotage', '103'
+2023-09-28 16:07:50 - Incident: 'Kidnapping', '102'
+2023-09-28 16:08:24 - Incident: 'Kidnapping', '102'
+2023-09-28 16:08:24 - Inserting into: Report
+2023-09-28 16:08:24 - Incident: 'Kidnapping', '102'
+2023-09-28 16:09:11 - Updating records in: Operation
+2023-09-28 16:32:36 - Incident: 'Sabotage', '103'
+2023-09-28 16:33:34 - Incident: 'Breach', '105'
+2023-09-28 17:02:49 - Incident: 'Ambush', '106'
+2023-09-28 17:02:52 - Incident: '123asd', '123123123'
+2023-09-28 17:02:54 - Incident: 'Sabotage', '103'
+2023-09-28 21:18:06 - Incident: '213123asd', '234234'
+2023-09-28 21:18:09 - Incident: 'Ambush', '106'
+2023-09-28 21:18:29 - Incident: 'Ambush', '106'
+2023-09-28 21:18:29 - Inserting into: Operation
+2023-09-28 21:18:29 - calling from OperationInsertHandler: $incident = Ambush, 106
+2023-09-28 21:18:29 - IncidentName= Ambush
+2023-09-28 21:18:29 - IncidentNumber= 106
+2023-09-28 21:18:29 - Incident: 'Ambush', '106'
+2023-09-29 05:42:44 - SELECT * FROM . FieldAgents . ;
+2023-09-29 05:43:08 - SELECT * FROM . FieldAgents;
+2023-09-29 05:43:25 - SELECT * FROM FieldAgents;
+2023-09-29 05:43:25 - SELECT * FROM GroupLeaders;
+2023-09-29 05:43:25 - SELECT * FROM Managers;
+2023-09-29 05:44:57 - SELECT * FROM FieldAgents;
+2023-09-29 05:44:57 - SELECT * FROM GroupLeaders;
+2023-09-29 05:44:57 - SELECT * FROM Managers;
+2023-09-29 05:46:06 - SELECT * FROM FieldAgents;
+2023-09-29 05:46:06 - SELECT * FROM GroupLeaders;
+2023-09-29 05:46:06 - SELECT * FROM Managers;
+2023-09-29 05:46:25 - SELECT * FROM FieldAgents;
+2023-09-29 05:46:25 - SELECT * FROM GroupLeaders;
+2023-09-29 05:46:25 - SELECT * FROM Managers;
+2023-09-29 05:46:33 - SELECT * FROM FieldAgents;
+2023-09-29 05:46:33 - SELECT * FROM GroupLeaders;
+2023-09-29 05:46:33 - SELECT * FROM Managers;
+2023-09-29 05:46:45 - SELECT * FROM FieldAgents;
+2023-09-29 05:46:45 - SELECT * FROM GroupLeaders;
+2023-09-29 05:46:45 - SELECT * FROM Managers;
+2023-09-29 05:46:54 - SELECT * FROM FieldAgents;
+2023-09-29 05:46:54 - SELECT * FROM GroupLeaders;
+2023-09-29 05:46:54 - SELECT * FROM Managers;
+2023-09-29 05:47:05 - SELECT * FROM FieldAgents;
+2023-09-29 05:47:05 - SELECT * FROM GroupLeaders;
+2023-09-29 05:47:05 - SELECT * FROM Managers;
+2023-09-29 05:47:48 - Incident: 'asdasd', '123123'
+2023-09-29 05:48:04 - Incident: 'Sabotage', '103'
+2023-09-29 05:48:09 - SELECT * FROM FieldAgents;
+2023-09-29 05:48:09 - SELECT * FROM GroupLeaders;
+2023-09-29 05:48:09 - SELECT * FROM Managers;
+2023-09-29 05:48:34 - SELECT * FROM FieldAgents;
+2023-09-29 05:48:34 - SELECT * FROM GroupLeaders;
+2023-09-29 05:48:34 - SELECT * FROM Managers;
+2023-09-29 05:50:12 - Incident: '123asd', '123123123'
+2023-09-29 05:51:53 - Incident: 'Ambush', '106'
+2023-09-29 05:53:13 - Incident: 'Ambush', '106'
+2023-09-29 05:53:17 - Incident: 'Sabotage', '103'
+2023-09-29 05:53:23 - Incident: 'Sabotage', '103'
+2023-09-29 05:53:23 - Incident: 'Sabotage', '103'
+2023-09-29 05:57:02 - 
+2023-09-29 05:57:12 - 
+2023-09-29 05:57:12 - 
+2023-09-29 05:57:12 - 
+2023-09-29 05:57:12 - 
+2023-09-29 05:57:46 - Incident: 'Kidnapping', '102'
+2023-09-29 06:14:02 - Incident: 'Sabotage', '103'
+2023-09-29 06:23:16 - Incident: 'asdasd', '123123'
+2023-09-29 06:23:30 - Incident: '213123asd', '234234'
+2023-09-29 06:23:52 - Incident: '213123asd', '234234'
+2023-09-29 06:23:52 - Inserting into: Report
+2023-09-29 06:23:52 - Incident: '213123asd', '234234'
+2023-09-29 06:23:58 - Incident: '213123asd', '234234'
+2023-09-29 06:23:58 - Incident: '213123asd', '234234'
+2023-09-29 06:24:31 - Incident: 'asdasd', '123123'
+2023-09-29 06:24:34 - Incident: 'asdasd', '123123'
+2023-09-29 06:24:36 - Incident: 'Heist', '101'
+2023-09-29 06:24:52 - Updating records in: Operation
+2023-09-29 08:39:39 - Incident: 'Arson', '108'
+2023-09-29 08:39:53 - Incident: 'Arson', '108'
+2023-09-29 08:39:53 - Inserting into: Report
+2023-09-29 08:39:53 - Incident: 'Arson', '108'
+2023-09-29 08:40:08 - Incident: 'Sabotage', '103'
+2023-09-29 08:40:21 - Updating records in: Operation
+2023-09-29 08:40:29 - Inserting into: OperatesIn
+2023-09-29 14:18:48 - Incident: 'Arson', '108'
+2023-09-29 14:19:19 - Incident: '213123asd', '234234'
+2023-09-29 14:37:14 - SELECT * FROM ArchivedReport WHERE Title = hej;
+2023-09-29 14:37:54 - SELECT * FROM ArchivedReport WHERE Title = hej;
+2023-09-29 14:38:08 - SELECT * FROM ArchivedReport WHERE Title = hej;
+2023-09-29 14:38:43 - SELECT * FROM ArchivedReport WHERE Title = 'hej';
+2023-09-29 14:38:49 - SELECT * FROM ArchivedReport WHERE Title = 'test';
+2023-09-29 14:38:58 - SELECT * FROM ArchivedReport WHERE Title = '';
+2023-09-29 14:39:01 - SELECT * FROM Report;
+2023-09-29 14:39:07 - SELECT * FROM Report;
+2023-09-29 14:39:10 - SELECT * FROM Report;
+2023-09-29 14:39:35 - SELECT * FROM ArchivedReport;
+2023-09-29 14:39:52 - SELECT * FROM ArchivedReport WHERE Title = 'Old';
+2023-09-29 14:39:57 - SELECT * FROM ArchivedReport WHERE Title = 'old';
+2023-09-29 14:40:00 - SELECT * FROM ArchivedReport WHERE Title = 'old';
+2023-09-29 14:40:05 - SELECT * FROM ArchivedReport WHERE Title = 'test';
+2023-09-29 14:40:12 - SELECT * FROM ArchivedReport WHERE Title = '';
+2023-09-29 14:40:17 - SELECT * FROM ArchivedReport;
+2023-09-29 14:41:37 - SELECT * FROM ArchivedReport;
+2023-09-29 14:41:46 - SELECT * FROM ArchivedReport WHERE Title LIKE 'o%';
+2023-09-29 14:46:48 - SELECT * FROM ArchivedReport;
+2023-09-29 14:46:54 - SELECT * FROM ArchivedReport WHERE Title LIKE 'operation%';
+2023-09-29 14:47:09 - SELECT * FROM ArchivedReport WHERE Title LIKE 'test%';
+2023-09-29 14:47:13 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:49:18 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:51:17 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:51:26 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:52:26 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:52:26 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:53:09 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:53:10 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:54:08 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:54:15 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:54:16 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:54:27 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 14:54:28 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 16:52:46 - SELECT * FROM ArchivedReport;
+2023-09-29 17:03:24 - SELECT * FROM ArchivedReport;
+2023-09-29 17:04:07 - SELECT * FROM ArchivedReport;
+2023-09-29 17:04:13 - SELECT * FROM ArchivedReport WHERE Title LIKE 'op%';
+2023-09-29 17:04:17 - SELECT * FROM ArchivedReport WHERE Title LIKE 'test%';
+2023-09-29 17:04:19 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';
+2023-09-29 17:04:24 - SELECT * FROM ArchivedReport WHERE Title LIKE 'kidnapping%';
+2023-09-29 17:20:29 - SELECT * FROM ArchivedReport;
+2023-09-30 14:01:39 - Incident: 'Sabotage', '103'
+2023-09-30 18:10:57 - SELECT * FROM ArchivedReport;
+2023-09-30 18:11:05 - SELECT * FROM ArchivedReport WHERE Title LIKE 'o%';
+2023-09-30 18:11:09 - SELECT * FROM ArchivedReport WHERE Title LIKE 'test%';
+2023-09-30 18:11:12 - SELECT * FROM ArchivedReport WHERE Title LIKE 'rapport%';
+2023-09-30 18:11:13 - SELECT * FROM ArchivedReport WHERE Title LIKE '%';

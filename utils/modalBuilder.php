@@ -82,9 +82,10 @@
             }
 
             foreach ($this->dateColumns as $column) {
+                $date = date('Y-m-d');
                 $modalBody .= "<div class='form-group'>
                                 <label for='$column'>$column</label>
-                                <input type='date' class='form-control' id='$column' name='$column'>
+                                <input type='date' value='$date' class='form-control' id='$column' name='$column'>
                             </div>";
             }
 

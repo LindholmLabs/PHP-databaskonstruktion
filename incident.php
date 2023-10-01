@@ -11,7 +11,7 @@
 
     $queryOperations = "SELECT * FROM Operation WHERE IncidentName = '{$incidentName}' AND IncidentNumber = '{$incidentNumber}';";
 
-    $pageContent .= "<h3>Operations in $incidentName</h3>" . tableFactory::createTableWithRedirect($queryOperations, "operation.php", ["OperationName", "StartDate", "IncidentName", "IncidentNumber"]);
+    $pageContent .= "<h3>Operations in $incidentName</h3>" . tableFactory::createTableWithRedirect($queryOperations, "operation.php", ["OperationName", "StartDate", "IncidentName", "IncidentNumber"], "Operation");
 
     logg("Incident: " . "'{$incidentName}', '{$incidentNumber}'");
 
@@ -34,7 +34,7 @@
 
     $queryReports = "SELECT * FROM Report WHERE IncidentName = '{$incidentName}' AND IncidentNumber = {$incidentNumber}";
 
-    $pageContent .= "<h3>Reports</h3>" . tableFactory::createTableWithCallbackColumn($queryReports, 'archiveReport');
+    $pageContent .= "<h3>Reports</h3>" . tableFactory::createTableWithCallbackColumn($queryReports, 'archiveReport', "Report");
 
     function ArchiveReport($rowdata) {
         $dateCreated = isset($rowdata['DateCreated']) ? $rowdata['DateCreated'] : '';
@@ -50,7 +50,6 @@
         </form>";
     }
 
-    //Run archive report procedure
     $procedureHandler->handlePostData($_POST);
 
     $WriteReportModal = (new ModalBuilder())

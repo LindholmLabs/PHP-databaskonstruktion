@@ -6,6 +6,7 @@
         private $requiredColumns = [];
         private $hiddenColumns = [];
         private $dateColumns = [];
+        private $procedure;
         private $modalId;
         private $postHandler;
             
@@ -21,6 +22,11 @@
 
         public function setPostHandler(PostHandler $handler) {
             $this->postHandler = $handler;
+            return $this;
+        }
+
+        public function setProcedure($procedureName) {
+            $this->procedure = $procedureName;
             return $this;
         }
     
@@ -55,6 +61,9 @@
 
         public function handleData() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tableName']) && $_POST['tableName'] === $this->tableName) {
+                $this->postHandler->handlePostData($_POST);
+            }
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['operationType']) && isset($_POST['Function']) && $_POST['Function'] === $this->procedure) {
                 $this->postHandler->handlePostData($_POST);
             }
         }
@@ -106,16 +115,22 @@
                 $modalBody .= "<input type=\"hidden\" name=\"$column\" value=\"$value\">";
             }
 
+            $procedureOrTableName = isset($this->procedure) ? $this->procedure : $this->tableName;
+            $procedureOrTable = isset($this->procedure) ? "Function" : "tableName";
+            $submitMessage = isset($this->procedure) ? "Submit" : "Save";
+
             $modalEnd = "</div>
                             <div class='modal-footer'>
-                                <input type='hidden' name='tableName' value='{$this->tableName}'>
+                                <input type='hidden' name='$procedureOrTable' value='$procedureOrTableName'>
                                 <input type='hidden' name='operationType' value='{$this->postHandler->getOperationType()}'>
-                                <button type='submit' class='btn btn-primary'>Save</button>
+                                <button type='submit' class='btn btn-primary'>$submitMessage</button>
                             </div>
                         </div>
                     </div>
                     </div>
                 </form>";
+
+            logg("FROM MODALBUILDER: posthandler intercepting messages with operationType: {$this->postHandler->getOperationType()}");
 
             return $modalStart . $modalBody . $modalEnd;
         }

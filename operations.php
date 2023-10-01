@@ -7,7 +7,7 @@
 
     $query = "SELECT * FROM Operation;";
 
-    $pageContent .= "<h3>Operations</h3>" . tableFactory::createTableWithRedirect($query, "operation.php", ["OperationName", "StartDate", "IncidentName", "IncidentNumber"]);
+    $pageContent .= "<h3>Operations</h3>" . tableFactory::createTableWithRedirect($query, "operation.php", ["OperationName", "StartDate", "IncidentName", "IncidentNumber"], "Operation");
 
     $modalBuilder = (new ModalBuilder())
             ->setModalId('insertModal')

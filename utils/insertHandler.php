@@ -21,7 +21,7 @@
         }
 
         public function handlePostData($data) {
-            if (!isInsert($data)) return;
+            if (!isInsert($data) || !isset($data["OperationName"])) return;
 
             logg("Inserting into: " . $this->tableName);
 

@@ -130,8 +130,6 @@
                     </div>
                 </form>";
 
-            logg("FROM MODALBUILDER: posthandler intercepting messages with operationType: {$this->postHandler->getOperationType()}");
-
             return $modalStart . $modalBody . $modalEnd;
         }
     }

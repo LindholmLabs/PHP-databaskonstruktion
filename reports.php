@@ -21,16 +21,6 @@
     $pageContent .= '    </form>';
     $pageContent .= '</div>';
 
-    $modalBuilder = (new ModalBuilder())
-            ->setModalId('ArvhiceReport')
-            ->setProcedure('ArchiveReport')
-            ->setPostHandler(new ProcedureHandler())
-            ->addDropdownColumn("Report", GetCompositeKeyValues("Report", ["Title", "DateCreated"]));
-
-    $modalBuilder->handleData();
-    $pageContent .= $modalBuilder->build();
-    $pageContent .= $modalBuilder->generateOpenButton("Archive Report");
-
     $sqlQuery = $searchQuery ? "SELECT * FROM ArchivedReport WHERE Title LIKE '%{$searchQuery}%';" : "SELECT * FROM ArchivedReport;";
     $pageContent .= tableFactory::createCustomTable($sqlQuery, "ArchivedReport");
 

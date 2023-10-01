@@ -2725,3 +2725,15 @@
 2023-10-01 14:42:11 - FROM MODALBUILDER: posthandler intercepting messages with operationType: INSERT
 2023-10-01 14:42:18 - FROM MODALBUILDER: posthandler intercepting messages with operationType: INSERT
 2023-10-01 14:55:51 - Inserting into: Agent
+2023-10-01 18:37:02 - Inserting into: Operation
+2023-10-01 18:37:02 - calling from OperationInsertHandler: $incident = Arson, 108
+2023-10-01 18:37:02 - IncidentName= Arson
+2023-10-01 18:37:02 - IncidentNumber= 108
+2023-10-01 18:37:33 - Inserting into: Operation
+2023-10-01 18:37:33 - calling from OperationInsertHandler: $incident = Arson, 108
+2023-10-01 18:37:33 - IncidentName= Arson
+2023-10-01 18:37:33 - IncidentNumber= 108
+2023-10-01 18:37:44 - Inserting into: Operation
+2023-10-01 18:37:44 - calling from OperationInsertHandler: $incident = Arson, 108
+2023-10-01 18:37:44 - IncidentName= Arson
+2023-10-01 18:37:44 - IncidentNumber= 108

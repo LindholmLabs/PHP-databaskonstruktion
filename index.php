@@ -5,6 +5,17 @@
 
         $pageContent = '';
 
+        $pageContent .= "<h3>Remove agent</h3>";
+        $pageContent .= '<div class="mt-3 mb-3">';
+        $pageContent .= '    <form class="form-inline" method="GET" action="delete.php">';
+        $pageContent .= '        <input type="hidden" name="table" value="Agent">';
+        $pageContent .= '        <div class="form-group">';
+        $pageContent .= '            <input type="text" class="form-control" id="CodeName" name="CodeName" placeholder="Agent codename" value="' . htmlspecialchars($_GET['CodeName'] ?? '') . '">';
+        $pageContent .= '        </div>';
+        $pageContent .= '        <button style="margin-left:0.5em;" type="submit" class="btn btn-danger">Remove Agent</button>';
+        $pageContent .= '    </form>';
+        $pageContent .= '</div><hr>';
+
         $pageContent .= "<h3>FieldAgents</h3>" . tableFactory::createTable("FieldAgents");
 
         $attributeModalBuilder = (new ModalBuilder())

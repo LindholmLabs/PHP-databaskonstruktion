@@ -16,7 +16,7 @@
                     
                         $stmt = $pdo->prepare($sql);
                     
-                        if (!$stmt->execute(array_values($postData)));
+                        $stmt->execute(array_values($postData));
                     }
                 } catch(PDOException $e) {
                     echo "Error: " . $e->getMessage();

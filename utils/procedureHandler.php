@@ -7,22 +7,16 @@
                     $pdo = $db->getPdo();
         
                     if (isset($postData['Function'])) {
-                        
+    
                         $procedureName = $postData['Function'];
                         unset($postData['Function'], $postData['OperationType']);
-    
-                        $placeholders = array_keys($postData);
-                        $sql = "CALL {$procedureName}(" . implode(", ", array_map(function($p) {
-                            return ":$p";
-                        }, $placeholders)) . ")";
-    
+                    
+                        $questionMarks = array_fill(0, count($postData), '?');
+                        $sql = "CALL {$procedureName}(" . implode(", ", $questionMarks) . ")";
+                    
                         $stmt = $pdo->prepare($sql);
-    
-                        foreach ($postData as $key => $value) {
-                            $stmt->bindParam(":$key", $postData[$key]);
-                        }
-    
-                        $stmt->execute();
+                    
+                        if (!$stmt->execute(array_values($postData)));
                     }
                 } catch(PDOException $e) {
                     echo "Error: " . $e->getMessage();

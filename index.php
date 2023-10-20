@@ -1,6 +1,5 @@
 <?php
         require 'utils/imports.php';
-        dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
         $handlerFactory = new InsertHandlerFactory();
 
         $pageContent = '';

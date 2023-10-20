@@ -26,7 +26,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav"><li class="nav-item ">
+            <ul class="navbar-nav">
                 <?php 
                     $currentPage = basename($_SERVER['SCRIPT_NAME']);
                     foreach ($pages as $file => $name) {
@@ -37,6 +37,15 @@
                     }
                 ?>
             </ul>
+            <?php
+                if (isset($_SESSION['UserName']) && isset($_SESSION['Password'])) {
+                    echo '<ul class="navbar-nav d-lg-flex ml-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout.php">Logout</a>
+                            </li>
+                        </ul>';
+                }
+            ?>
         </div>
     </nav>
 

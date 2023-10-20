@@ -1,6 +1,6 @@
 <?php
     require 'utils/imports.php';
-    $db = dbconnection::getInstance('mysql', 'a22willi', 'root', 'Safiren1');
+    $db = dbconnection::getInstance();
     $pdo = $db->getPdo();
 
     if (isset($_GET['table']) && !empty($_GET['table'])) {

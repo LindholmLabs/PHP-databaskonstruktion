@@ -7,8 +7,13 @@
         private function __construct($host, $dbname, $username, $password) {
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                die('Connection failed: ' . $e->getMessage());
+                if ($e->getCode() == 1045) {
+                    logg("User credentials incorrect.");
+                    throw $e;
+                }
+                logg($e->getMessage());
             }
         }
 

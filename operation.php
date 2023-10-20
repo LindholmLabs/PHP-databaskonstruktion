@@ -39,21 +39,21 @@
     $pageContent .= "<hr>";
     
     $queryGroupLeader = "SELECT GroupLeader FROM Operation 
-        WHERE OperationName = '{$operationName}' 
+        WHERE OperationName = '{$operationName}'
         AND StartDate = '{$startDate}'
         AND IncidentName = '{$incidentName}'
         AND IncidentNumber = {$incidentNumber}";
 
     $pageContent .= "<h3>Groupleader for $operationName</h3>" . tableFactory::createCustomTable($queryGroupLeader);
 
-    $condition = "OperationName = '{$operationName}' 
+    $condition = "OperationName = '{$operationName}'
         AND StartDate = '{$startDate}'
         AND IncidentName = '{$incidentName}'
         AND IncidentNumber = {$incidentNumber}";
 
     $updateGroupLeaderModalBuilder = (new ModalBuilder())
         ->setModalId('updateModal')
-        ->setTableName("OperatesIn")
+        ->setTableName("Operation")
         ->setPostHandler($updateFactory->createHandler("Operation",  $condition))
         ->addDropdownColumn("GroupLeader", getColumnValues("GroupLeaders", "CodeName"));
 

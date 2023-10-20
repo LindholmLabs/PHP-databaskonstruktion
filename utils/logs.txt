@@ -2737,3 +2737,57 @@
 2023-10-01 18:37:44 - calling from OperationInsertHandler: $incident = Arson, 108
 2023-10-01 18:37:44 - IncidentName= Arson
 2023-10-01 18:37:44 - IncidentNumber= 108
+2023-10-02 09:16:45 - Incident: 'Arson', '108'
+2023-10-02 09:20:46 - Inserting into: Agent
+2023-10-02 09:31:50 - Inserting into: Agent
+2023-10-02 09:33:56 - Inserting into: Agent
+2023-10-02 14:10:14 - Incident: 'Espionage', '104'
+2023-10-02 14:10:20 - Updating records in: Operation
+2023-10-02 14:10:37 - Incident: 'Arson', '108'
+2023-10-02 14:11:57 - Incident: 'Espionage', '104'
+2023-10-02 14:15:41 - Incident: 'Kidnappning', '42023'
+2023-10-02 14:16:51 - Incident: 'Breach', '105'
+2023-10-02 14:17:05 - Incident: 'Arson', '108'
+2023-10-02 14:17:10 - Incident: 'Arson', '108'
+2023-10-02 14:17:11 - Incident: 'Arson', '108'
+2023-10-02 14:17:33 - Incident: 'Hackning', '923'
+2023-10-02 15:16:40 - Inserting into: Agent
+2023-10-02 15:26:25 - Incident: 'Heist', '101'
+2023-10-02 15:26:27 - Incident: 'Sabotage', '103'
+2023-10-02 15:28:51 - Incident: 'Sabotage', '103'
+2023-10-02 15:28:52 - Incident: 'Sabotage', '103'
+2023-10-03 06:54:11 - Incident: 'Hackning', '923'
+2023-10-03 06:54:13 - Incident: 'Ambush', '106'
+2023-10-03 07:00:55 - Updating records in: Operation
+2023-10-03 08:08:52 - Incident: 'Arson', '108'
+2023-10-03 08:14:23 - Incident: 'Ambush', '106'
+2023-10-03 12:15:16 - Incident: 'Breach', '105'
+2023-10-03 12:15:20 - Incident: 'Heist', '101'
+2023-10-03 12:15:24 - Incident: 'Sabotage', '103'
+2023-10-03 12:15:48 - Incident: 'Sabotage', '103'
+2023-10-03 12:15:48 - Incident: 'Sabotage', '103'
+2023-10-03 12:16:45 - Incident: 'Hijacking', '107'
+2023-10-03 15:52:31 - Incident: 'Assault', '109'
+2023-10-03 15:52:34 - Incident: 'Sabotage', '103'
+2023-10-03 15:52:38 - Incident: 'Sabotage', '103'
+2023-10-03 15:52:39 - Incident: 'Sabotage', '103'
+2023-10-03 15:55:36 - Incident: 'Sabotage', '103'
+2023-10-03 15:55:41 - Incident: 'Sabotage', '103'
+2023-10-03 15:55:42 - Incident: 'Sabotage', '103'
+2023-10-03 19:23:43 - Incident: 'Arson', '108'
+2023-10-03 19:23:44 - Incident: 'Arson', '108'
+2023-10-03 19:23:45 - Incident: 'Arson', '108'
+2023-10-03 19:25:14 - Incident: '213123asd', '234234'
+2023-10-09 17:23:33 - Incident: 'Breach', '105'
+2023-10-09 17:23:43 - Incident: 'Arson', '108'
+2023-10-09 17:23:59 - Incident: 'Ambush', '106'
+2023-10-09 17:24:00 - Incident: 'inringning', '901'
+2023-10-09 17:24:02 - Incident: 'Sabotage', '103'
+2023-10-09 17:24:34 - Incident: 'Sabotage', '103'
+2023-10-09 17:24:58 - Incident: 'Sabotage', '103'
+2023-10-09 17:24:58 - Incident: 'Sabotage', '103'
+2023-10-09 17:25:02 - Incident: 'Sabotage', '103'
+2023-10-09 20:45:53 - Incident: 'Breach', '105'
+2023-10-09 20:45:58 - Updating records in: Operation
+2023-10-15 12:54:08 - Incident: 'Arson', '108'
+2023-10-15 12:57:05 - Incident: 'Assault', '109'
